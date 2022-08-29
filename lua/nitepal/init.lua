@@ -1,4 +1,3 @@
-local colors = require('nitepal.colors')
 local nitepal = {}
 
 function nitepal.colorscheme(style)
@@ -8,7 +7,17 @@ function nitepal.colorscheme(style)
         error('Invalid style: ' .. style)
     end
 
-    local palette = colors.get_colors()
+    vim.cmd([[hi clear]])
+
+    if vim.fn.exists('syntax_on') then
+        vim.cmd('syntax reset')
+    end
+
+    vim.o.background = style
+    vim.o.termguicolors = true
+    vim.g.colors_name = style == 'dark' and 'nitepal' or 'litepal'
+
+    require('nitepal.utils').init()
 end
 
 return nitepal
