@@ -42,6 +42,9 @@ local palette = {
     alt_white = '#6183bb',
     purple = '#9d7cd8',
 
+    dark_green = '#5d7b23',
+    dark_red = '#d4007c',
+
     additional = { git_orange = '#f05033' },
 
     none = 'NONE',
