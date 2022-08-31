@@ -17,7 +17,7 @@ function nitepal.colorscheme(style)
     vim.o.termguicolors = true
     vim.g.colors_name = style == 'dark' and 'nitepal' or 'litepal'
 
-    require('nitepal.utils').init()
+    require('nitepal.theme').init()
 end
 
 return nitepal
