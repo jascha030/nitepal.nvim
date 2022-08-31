@@ -4,7 +4,7 @@ local lighten = require('nitepal.utils').lighten
 local M = {}
 
 function M.generate(style)
-    local colors = require('nitepal.colors').get_colors()
+    local colors = require('nitepal.utils.palette').get_colors()
     colors = colors[style] or colors.dark
 
     local scheme = {}
@@ -96,7 +96,8 @@ function M.generate(style)
             border = '#e9e9ed',
             border_highlight = '#7890dd',
             comment = '#848cb5',
-            cyan = '#007197',
+            -- cyan = '#007197',
+            cyan = colors.red,
             dark3 = '#8990b3',
             dark5 = '#68709a',
             diff = {
@@ -127,10 +128,11 @@ function M.generate(style)
             green2 = colors.alt_cyan,
             hint = colors.bright_cyan,
             info = colors.cyan,
-            magenta = colors.bright_magenta,
+            magenta = lighten(colors.magenta, 0.2),
+            -- magenta = colors.purple,
             magenta2 = darken(colors.bright_red, 0.25),
             orange = colors.bright_orange,
-            purple = darken(colors.purple, 0.1),
+            purple = colors.purple,
             red = colors.red,
             red1 = colors.orange,
             teal = darken(colors.bright_red, 0.15),
