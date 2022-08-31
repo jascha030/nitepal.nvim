@@ -1,3 +1,5 @@
+-- local ctils = pcall(require)
+
 local M = {}
 
 function M.generate(style)
@@ -52,7 +54,7 @@ function M.generate(style)
             gitSigns = {
                 add = '#266d6a',
                 change = '#536c9e',
-                delete = colors.additional.git_orange,
+                delete = colors.orange,
             },
             green = colors.bright_green,
             green1 = colors.bright_blue,
@@ -62,12 +64,12 @@ function M.generate(style)
             magenta = colors.bright_magenta,
             magenta2 = colors.alt_red,
             none = colors.none,
-            orange = colors.alt_yellow,
+            orange = colors.bright_orange,
             purple = colors.purple,
             red = colors.red,
-            red1 = colors.additional.git_orange,
+            red1 = colors.orange,
             teal = colors.red,
-            warning = colors.alt_yellow,
+            warning = colors.bright_orange,
             yellow = colors.yellow,
             -- warning = '#e0af68',
         }
@@ -128,7 +130,7 @@ function M.generate(style)
             gitSigns = {
                 add = '#399a96',
                 change = '#6482bd',
-                delete = colors.additional.git_orange,
+                delete = colors.orange,
             },
             -- green = colors.bright_green,
             green = colors.dark_green,
@@ -139,10 +141,10 @@ function M.generate(style)
             magenta = colors.bright_magenta,
             magenta2 = '#d20065',
             none = colors.none,
-            orange = colors.alt_yellow,
+            orange = colors.bright_orange,
             purple = colors.dark_red,
             red = colors.red,
-            red1 = colors.additional.git_orange,
+            red1 = colors.orange,
             teal = colors.dark_red,
             terminal_black = '#a1a6c5',
             warning = colors.bright_yellow,

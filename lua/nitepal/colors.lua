@@ -1,6 +1,5 @@
 local M = {}
 
-local palette = {}
 local variants = {
     light = {
         bg = '#e7e9ef',
@@ -21,6 +20,8 @@ local palette = {
     magenta = '#6f42c1',
     cyan = '#0a6e81',
     white = '#969ac9',
+    orange = '#f05033',
+    purple = '#9d7cd8',
 
     bright_black = '#465a82',
     bright_red = '#f47cb4',
@@ -30,22 +31,20 @@ local palette = {
     bright_magenta = '#bb9af7',
     bright_cyan = '#1abc9c',
     bright_white = '#fffcfc',
+    bright_orange = '#ff8000',
 
     alt_black = '#1D202F',
     alt_red = '#ff007c',
     alt_green = '#8fd742',
-    alt_yellow = '#ff8000',
     alt_blue = '#0083f7',
+
     bg_visual = '#364A82',
     alt_magenta = '#5f5fec',
     alt_cyan = '#41a6b5',
     alt_white = '#6183bb',
-    purple = '#9d7cd8',
 
     dark_green = '#5d7b23',
     dark_red = '#d4007c',
-
-    additional = { git_orange = '#f05033' },
 
     none = 'NONE',
 }
