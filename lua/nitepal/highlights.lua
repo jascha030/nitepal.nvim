@@ -115,6 +115,7 @@ function M.setup_hl_colors(c)
         DiagnosticWarn = { fg = c.warning },
         DiagnosticInfo = { fg = c.info },
         DiagnosticHint = { fg = c.hint },
+
         -- DiagnosticVirtualTextError = { bg = util.darken(c.error, 0.1), fg = c.error },
         -- DiagnosticVirtualTextWarn = { bg = util.darken(c.warning, 0.1), fg = c.warning },
         -- DiagnosticVirtualTextInfo = { bg = util.darken(c.info, 0.1), fg = c.info },
@@ -127,7 +128,6 @@ function M.setup_hl_colors(c)
 
         LspSignatureActiveParameter = { fg = c.orange },
         LspCodeLens = { fg = c.comment },
-
         ALEErrorSign = { fg = c.error },
         ALEWarningSign = { fg = c.warning },
     }
@@ -159,7 +159,7 @@ function M.setup_hl_colors(c)
         TSKeywordFunction = { fg = c.magenta, style = 'italic' },
         TSLabel = { fg = c.blue },
         TSOperator = { fg = c.blue5 },
-        TSParameter = { fg = c.yellow },
+        TSParameter = { fg = c.red },
         TSProperty = { fg = c.green1 },
         TSPunctDelimiter = { fg = c.blue5 },
         TSPunctBracket = { fg = c.fg_dark },
@@ -300,40 +300,31 @@ function M.setup_hl_colors(c)
         LightspeedOneCharMatch = { bg = c.magenta2, fg = c.fg, style = 'bold' },
         LightspeedPendingOpArea = { bg = c.magenta2, fg = c.fg },
         LightspeedShortcut = { bg = c.magenta2, fg = c.fg, style = 'bold,underline' },
-
         LightspeedUnlabeledMatch = { fg = c.blue2, style = 'bold' },
 
         CmpDocumentation = { fg = c.fg, bg = c.bg_float },
         CmpDocumentationBorder = { fg = c.border_highlight, bg = c.bg_float },
-
         CmpItemAbbr = { fg = c.fg, bg = c.none },
         CmpItemAbbrDeprecated = { fg = c.fg_gutter, bg = c.none, style = 'strikethrough' },
         CmpItemAbbrMatch = { fg = c.blue1, bg = c.none },
         CmpItemAbbrMatchFuzzy = { fg = c.blue1, bg = c.none },
-
         CmpItemKindDefault = { fg = c.fg_dark, bg = c.none },
         CmpItemMenu = { fg = c.comment, bg = c.none },
-
         CmpItemKindKeyword = { fg = c.cyan, bg = c.none },
-
         CmpItemKindVariable = { fg = c.magenta, bg = c.none },
         CmpItemKindConstant = { fg = c.magenta, bg = c.none },
         CmpItemKindReference = { fg = c.magenta, bg = c.none },
         CmpItemKindValue = { fg = c.magenta, bg = c.none },
-
         CmpItemKindFunction = { fg = c.blue, bg = c.none },
         CmpItemKindMethod = { fg = c.blue, bg = c.none },
         CmpItemKindConstructor = { fg = c.blue, bg = c.none },
-
         CmpItemKindClass = { fg = c.orange, bg = c.none },
         CmpItemKindInterface = { fg = c.orange, bg = c.none },
         CmpItemKindStruct = { fg = c.orange, bg = c.none },
         CmpItemKindEvent = { fg = c.orange, bg = c.none },
         CmpItemKindEnum = { fg = c.orange, bg = c.none },
         CmpItemKindUnit = { fg = c.orange, bg = c.none },
-
         CmpItemKindModule = { fg = c.yellow, bg = c.none },
-
         CmpItemKindProperty = { fg = c.green1, bg = c.none },
         CmpItemKindField = { fg = c.green1, bg = c.none },
         CmpItemKindTypeParameter = { fg = c.green1, bg = c.none },
