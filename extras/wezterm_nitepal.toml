@@ -1,0 +1,32 @@
+[colors]
+ansi = [
+    '#32466e',
+    '#ea1479',
+    '#2da44e',
+    '#ffcc00',
+    '#3d59a1',
+    '#6f42c1',
+    '#0a6e81',
+    '#969ac9',
+]
+brights = [
+    '#465a82',
+    '#f47cb4',
+    '#9ece6a',
+    '#ffae31',
+    '#8494FF',
+    '#bb9af7',
+    '#1abc9c',
+    '#fffcfc',
+]
+
+background = '#1e2030'
+foreground = '#c8d3f5'
+selection_bg = '#364A82'
+selection_fg = '#1e2030'
+cursor_bg = '#ffcc00'
+cursor_border = '#ffcc00'
+cursor_fg = '#1e2030'
+
+[metadata]
+name = 'Nitepal'
