@@ -68,7 +68,7 @@ function M.setup_hl_colors(c)
         String = { fg = c.green },
         Character = { fg = c.green },
 
-        Identifier = { fg = c.magenta },
+        Identifier = { fg = c.fg },
         Function = { fg = c.blue, style = 'italic' },
 
         Statement = { fg = c.magenta },
@@ -76,7 +76,7 @@ function M.setup_hl_colors(c)
         Operator = { fg = c.blue5 },
         Keyword = { fg = c.cyan, style = 'italic' },
 
-        PreProc = { fg = c.cyan },
+        PreProc = { fg = c.magenta },
 
         Type = { fg = c.blue1 },
 
@@ -153,22 +153,34 @@ function M.setup_hl_colors(c)
         TSNote = { fg = c.bg, bg = c.info },
         TSWarning = { fg = c.bg, bg = c.warning },
         TSDanger = { fg = c.bg, bg = c.error },
-        TSConstructor = { fg = c.magenta },
+        TSClassName = { fg = c.yellow },
+        TSMethod = { fg = c.blue1 },
+        TSModifierFinal = { fg = c.red, style = 'italic' },
+        TSScopeRelative = { fg = c.magenta, style = 'italic' },
+        TSConstant = { link = 'Constant' },
+        TSConstBuiltin = { link = 'Constant' },
+        TSMemberObjectVar = { fg = c.fg },
         TSField = { fg = c.green1 },
-        TSKeyword = { fg = c.purple, style = 'italic' },
+        TSKeyword = { fg = c.magenta, style = 'italic' },
         TSKeywordFunction = { fg = c.magenta, style = 'italic' },
         TSLabel = { fg = c.blue },
         TSOperator = { fg = c.blue5 },
-        TSParameter = { fg = c.red },
-        TSProperty = { fg = c.green1 },
+        TSProperty = { fg = c.fg },
         TSPunctDelimiter = { fg = c.blue5 },
-        TSPunctBracket = { fg = c.fg_dark },
-        TSPunctSpecial = { fg = c.blue5 },
+        TSPunctBracket = { fg = c.red },
+        TSPunctSpecial = { fg = c.red },
         TSStringRegex = { fg = c.blue6 },
         TSStringEscape = { fg = c.magenta },
-        TSVariable = {},
+        TSParameter = { fg = c.red },
+
+        -- TSVariable = { fg = c.fg },
         TSVariableBuiltin = { fg = c.red },
         TSTextReference = { fg = c.teal },
+
+        TSNamespace = { fg = c.fg },
+
+        TSType = { fg = c.fg },
+        TSTypeBuiltin = { fg = c.magenta, style = 'italic' },
 
         LspTroubleText = { fg = c.fg_dark },
         LspTroubleCount = { fg = c.magenta, bg = c.fg_gutter },
@@ -331,6 +343,11 @@ function M.setup_hl_colors(c)
         CmpItemKindEnumMember = { fg = c.green1, bg = c.none },
         CmpItemKindOperator = { fg = c.green1, bg = c.none },
         CmpItemKindSnippet = { fg = c.dark5, bg = c.none },
+
+        FidgetTitle = { fg = c.red, bg = c.none },
+        FidgetTask = { fg = c.fg, bg = c.bg },
+
+        TSParameterBuiltin = { fg = c.red, bg = c.none },
     }
 
     return theme
