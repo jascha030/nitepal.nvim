@@ -28,7 +28,7 @@ function M.generate(style)
             border = colors.alt_black,
             blue = '#7aa2f7',
             blue0 = colors.blue,
-            blue1 = '#2ac3de',
+            blue1 = '#A59BFF',
             blue2 = '#0db9d7',
             blue5 = '#89ddff',
             blue6 = '#B4F9F8',
@@ -74,7 +74,7 @@ function M.generate(style)
             red1 = colors.orange,
             teal = colors.red,
             warning = colors.bright_orange,
-            yellow = lighten(colors.yellow, 1),
+            yellow = brighten(colors.yellow, -0.1),
         }
     else
         scheme = {
