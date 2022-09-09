@@ -2,18 +2,20 @@ local nitepal = {}
 
 function nitepal.colorscheme(style)
     style = style or vim.o.background
-
     if style ~= 'dark' and style ~= 'light' then
         error('Invalid style: ' .. style)
     end
 
     vim.cmd([[hi clear]])
 
-    if vim.fn.exists('syntax_on') then
-        vim.cmd('syntax reset')
+    if vim.fn.exists([[syntax_on]]) then
+        vim.cmd([[syntax reset]])
     end
 
-    vim.o.background = style
+    if vim.o.background ~= style then
+        vim.o.background = style
+    end
+
     vim.o.termguicolors = true
     vim.g.colors_name = style == 'dark' and 'nitepal' or 'litepal'
 
