@@ -7,7 +7,7 @@ local brighten = utils.brighten
 local M = {}
 
 function M.generate(style)
-    local colors = require('nitepal.utils.palette').get_colors()
+    local colors = require('nitepal.palette').get_colors()
     colors = colors[style] or colors.dark
 
     local scheme = {}
@@ -18,8 +18,7 @@ function M.generate(style)
             bg = colors.bg,
             bg_dark = darken(colors.bg, 0.05),
             bg_float = colors.none,
-            -- bg_highlight = brighten(colors.bg, 0.1),
-            bg_highlight = brighten('#232235', 0.05),
+            bg_highlight = brighten(colors.alt_black, 0.05),
             bg_popup = colors.bg,
             bg_search = colors.blue,
             bg_sidebar = lighten(colors.bg, 0.01),
@@ -29,7 +28,7 @@ function M.generate(style)
             border = colors.alt_black,
             blue = '#7aa2f7',
             blue0 = colors.blue,
-            blue1 = '#A59BFF',
+            blue1 = colors.bright_magenta,
             blue2 = '#0db9d7',
             blue5 = '#89ddff',
             blue6 = '#B4F9F8',
@@ -66,9 +65,9 @@ function M.generate(style)
             green2 = colors.alt_cyan,
             hint = colors.bright_cyan,
             info = colors.cyan,
-            magenta = colors.bright_magenta,
+            magenta = colors.bright_purple,
             magenta2 = colors.alt_red,
-            magenta3 = '#EFC9F2',
+            magenta3 = colors.pink,
             none = colors.none,
             orange = colors.bright_orange,
             purple = colors.purple,
@@ -92,15 +91,20 @@ function M.generate(style)
             black = colors.bg,
             blue = brighten(colors.blue, 0.2),
             blue0 = colors.blue,
-            blue1 = '#188092',
-            blue2 = '#07879d',
-            blue5 = '#006a83',
+            -- cyan = '#0a6e81',
+            -- bright_cyan = '#1abc9c',
+            -- alt_cyan = '#41a6b5',
+            -- blue1 = '#188092',
+            -- blue2 = '#07879d',
+            -- blue5 = '#006a83',
+            blue1 = darken(colors.alt_cyan, 0.05),
+            blue2 = darken(colors.alt_cyan, 0.1),
+            blue5 = darken(colors.cyan, 0.05),
             blue6 = '#2e5857',
             blue7 = '#92a6d5',
             border = '#e9e9ed',
             border_highlight = '#7890dd',
             comment = '#848cb5',
-            -- cyan = '#007197',
             cyan = colors.red,
             dark3 = '#8990b3',
             dark5 = '#68709a',
@@ -132,9 +136,9 @@ function M.generate(style)
             green2 = colors.alt_cyan,
             hint = colors.bright_cyan,
             info = colors.cyan,
-            magenta = brighten(colors.bright_magenta, -0.25),
+            magenta = brighten(colors.bright_purple, -0.25),
             magenta2 = darken(colors.bright_red, 0.05),
-            magenta3 = '#EFC9F2',
+            magenta3 = brighten(colors.pink, -0.25),
             orange = colors.bright_orange,
             purple = colors.red,
             red = colors.red,
@@ -164,7 +168,7 @@ local function set_terminal_colors(colors)
     vim.g.terminal_color_10 = colors.bright_green
     vim.g.terminal_color_11 = colors.bright_yellow
     vim.g.terminal_color_12 = colors.bright_blue
-    vim.g.terminal_color_13 = colors.bright_magenta
+    vim.g.terminal_color_13 = colors.bright_purple
     vim.g.terminal_color_14 = colors.bright_cyan
     vim.g.terminal_color_15 = colors.bright_white
     vim.g.terminal_color_background = colors.bg
