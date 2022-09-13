@@ -18,7 +18,8 @@ function M.generate(style)
             bg = colors.bg,
             bg_dark = darken(colors.bg, 0.05),
             bg_float = colors.none,
-            bg_highlight = brighten(colors.bg, 0.1),
+            -- bg_highlight = brighten(colors.bg, 0.1),
+            bg_highlight = brighten('#232235', 0.05),
             bg_popup = colors.bg,
             bg_search = colors.blue,
             bg_sidebar = lighten(colors.bg, 0.01),
@@ -67,6 +68,7 @@ function M.generate(style)
             info = colors.cyan,
             magenta = colors.bright_magenta,
             magenta2 = colors.alt_red,
+            magenta3 = '#EFC9F2',
             none = colors.none,
             orange = colors.bright_orange,
             purple = colors.purple,
@@ -74,7 +76,7 @@ function M.generate(style)
             red1 = colors.orange,
             teal = colors.red,
             warning = colors.bright_orange,
-            yellow = brighten(colors.yellow, -0.1),
+            yellow = colors.bright_yellow,
         }
     else
         scheme = {
@@ -132,6 +134,7 @@ function M.generate(style)
             info = colors.cyan,
             magenta = brighten(colors.bright_magenta, -0.25),
             magenta2 = darken(colors.bright_red, 0.05),
+            magenta3 = '#EFC9F2',
             orange = colors.bright_orange,
             purple = colors.red,
             red = colors.red,
