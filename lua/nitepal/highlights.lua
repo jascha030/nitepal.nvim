@@ -1,3 +1,5 @@
+local utils = require('utils')
+
 local M = {}
 
 function M.setup_hl_colors(c)
@@ -67,19 +69,14 @@ function M.setup_hl_colors(c)
         Constant = { fg = c.red },
         String = { fg = c.green },
         Character = { fg = c.green },
-
         Identifier = { fg = c.fg },
-        Function = { fg = c.blue, style = 'italic' },
-
+        Function = { fg = c.blue1 }, --style = 'italic' },
         Statement = { fg = c.magenta },
-
         Operator = { fg = c.blue5 },
         Keyword = { fg = c.cyan, style = 'italic' },
-
+        KeywordFunction = { fg = c.magenta3, style = 'italic,underline' },
         PreProc = { fg = c.magenta },
-
         Type = { fg = c.blue1 },
-
         Special = { fg = c.blue1 },
 
         Underlined = { style = 'underline' },
@@ -87,7 +84,6 @@ function M.setup_hl_colors(c)
         Italic = { style = 'italic' },
 
         Error = { fg = c.error },
-
         qfLineNr = { fg = c.dark5 },
         qfFileName = { fg = c.blue },
 
@@ -162,7 +158,7 @@ function M.setup_hl_colors(c)
         TSMemberObjectVar = { fg = c.fg },
         TSField = { fg = c.green1 },
         TSKeyword = { fg = c.magenta, style = 'italic' },
-        TSKeywordFunction = { fg = c.magenta, style = 'italic' },
+        TSKeywordFunction = { link = 'KeywordFunction' },
         TSLabel = { fg = c.blue },
         TSOperator = { fg = c.blue5 },
         TSProperty = { fg = c.fg },
@@ -172,15 +168,14 @@ function M.setup_hl_colors(c)
         TSStringRegex = { fg = c.blue6 },
         TSStringEscape = { fg = c.magenta },
         TSParameter = { fg = c.red },
-
-        -- TSVariable = { fg = c.fg },
+        TSNamespaceUse = { fg = c.red },
         TSVariableBuiltin = { fg = c.red },
         TSTextReference = { fg = c.teal },
-
         TSNamespace = { fg = c.fg },
-
         TSType = { fg = c.fg },
         TSTypeBuiltin = { fg = c.magenta, style = 'italic' },
+        -- TSVariable = { fg = c.fg },
+        TSFunctionBuiltin = { link = 'TSTypeBuiltin' },
 
         LspTroubleText = { fg = c.fg_dark },
         LspTroubleCount = { fg = c.magenta, bg = c.fg_gutter },
@@ -297,13 +292,13 @@ function M.setup_hl_colors(c)
         Sneak = { fg = c.bg_highlight, bg = c.magenta },
         SneakScope = { bg = c.bg_visual },
 
-        HopNextKey = { fg = c.magenta2, style = 'bold' },
-        HopNextKey1 = { fg = c.blue2, style = 'bold' },
-        -- HopNextKey2 = { fg = util.darken(c.blue2, 0.3) },
+        HopNextKey = { fg = c.red, style = 'bold' },
+        HopNextKey1 = { fg = c.magenta2, style = 'bold' },
+        -- HopNextKey2 = { fg = utils.darken(c.blue2, 0.3) },
+
         HopUnmatched = { fg = c.dark3 },
 
         LightspeedGreyWash = { fg = c.dark3 },
-
         LightspeedLabel = { fg = c.magenta2, style = 'bold,underline' },
         LightspeedLabelDistant = { fg = c.green1, style = 'bold,underline' },
         LightspeedLabelDistantOverlapped = { fg = c.green2, style = 'underline' },
