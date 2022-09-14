@@ -76,6 +76,8 @@ function M.generate(style)
             teal = colors.red,
             warning = colors.bright_orange,
             yellow = colors.bright_yellow,
+            ['function'] = colors.pink,
+            keyword = colors.bright_purple,
         }
     else
         scheme = {
@@ -147,6 +149,8 @@ function M.generate(style)
             terminal_black = colors.black,
             warning = colors.bright_yellow,
             yellow = brighten(colors.bright_red, -0.05),
+            ['function'] = brighten(colors.bright_purple, -0.25),
+            keyword = darken(colors.bright_red, 0.05),
             none = colors.none,
         }
     end
