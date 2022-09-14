@@ -202,7 +202,7 @@ end
 
 function M.init()
     local colors, scheme = M.generate(vim.o.background)
-    local theme = require('nitepal.highlights').setup_hl_colors(scheme)
+    local theme = require('nitepal.highlights').setup_hl_colors(scheme, colors)
 
     set_terminal_colors(colors)
     set_syntax(theme.base)

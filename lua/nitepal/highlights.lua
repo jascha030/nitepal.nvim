@@ -2,7 +2,7 @@ local utils = require('utils')
 
 local M = {}
 
-function M.setup_hl_colors(c)
+function M.setup_hl_colors(c, colors)
     local theme = {}
 
     theme.base = {
@@ -70,10 +70,11 @@ function M.setup_hl_colors(c)
         String = { fg = c.green },
         Character = { fg = c.green },
         Identifier = { fg = c.fg },
-        Function = { fg = c.blue1 }, --style = 'italic' },
+        Function = { fg = c.blue1, style = 'italic' },
         Statement = { fg = c.magenta },
         Operator = { fg = c.blue5 },
         Keyword = { fg = c.cyan, style = 'italic' },
+
         KeywordFunction = { fg = c['function'], style = 'italic,underline', guisp = 'red' },
         PreProc = { fg = c.magenta },
         Type = { fg = c.blue1 },
