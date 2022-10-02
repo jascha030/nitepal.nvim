@@ -6,6 +6,7 @@ local function _treesitter()
     end
 
     local ok, hl = pcall(require, 'nvim-treesitter.highlight')
+
     if not ok then
         return
     end

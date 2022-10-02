@@ -26,6 +26,9 @@ local defaults = {
             ['selector.tag'] = 'TSConstant',
             ['selector.id'] = 'TSSelector',
             ['selector.class'] = 'TSClassName',
+            ['namespace.keyword'] = 'TSNamespaceKeyword',
+            ['namespace.use'] = 'TSNamespaceUse',
+            ['scope.static'] = 'TSScopeStatic',
         },
     },
 }

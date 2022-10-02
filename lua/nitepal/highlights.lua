@@ -1,5 +1,4 @@
 local utils = require('utils')
-
 local M = {}
 
 function M.setup_hl_colors(c, colors)
@@ -42,8 +41,8 @@ function M.setup_hl_colors(c, colors)
         NormalFloat = { fg = c.fg, bg = c.bg_float },
         FloatBorder = { fg = c.border_highlight, bg = c.bg_float },
         Pmenu = { bg = c.bg_popup, fg = c.fg },
-        -- PmenuSel = { bg = util.darken(c.fg_gutter, 0.8) },
-        -- PmenuSbar = { bg = util.lighten(c.bg_popup, 0.95) },
+        PmenuSel = { bg = c.fg_gutter },
+        PmenuSbar = { bg = c.bg_popup },
         PmenuThumb = { bg = c.fg_gutter },
         Question = { fg = c.blue },
         QuickFixLine = { bg = c.bg_visual, style = 'bold' },
@@ -130,13 +129,9 @@ function M.setup_hl_colors(c, colors)
     }
 
     if not vim.diagnostic then
-        local severity_map = {
-            Error = 'Error',
-            Warn = 'Warning',
-            Info = 'Information',
-            Hint = 'Hint',
-        }
+        local severity_map = { Error = 'Error', Warn = 'Warning', Info = 'Information', Hint = 'Hint' }
         local types = { 'Default', 'VirtualText', 'Underline' }
+
         for _, type in ipairs(types) do
             for snew, sold in pairs(severity_map) do
                 theme.base['LspDiagnostics' .. type .. sold] = {
@@ -169,14 +164,15 @@ function M.setup_hl_colors(c, colors)
         TSStringRegex = { fg = c.blue6 },
         TSStringEscape = { fg = c.magenta },
         TSParameter = { fg = c.red },
-        TSNamespaceUse = { fg = c.red },
         TSVariableBuiltin = { fg = c.red },
         TSTextReference = { fg = c.teal },
         TSNamespace = { fg = c.fg },
+        TSNamespaceUse = { fg = c.red },
         TSType = { fg = c.fg },
         TSTypeBuiltin = { fg = c.magenta, style = 'italic' },
-        -- TSVariable = { fg = c.fg },
         TSFunctionBuiltin = { link = 'TSTypeBuiltin' },
+        TSNamespaceKeyword = { fg = colors.red },
+        TSScopeStatic = { fg = colors.red, style = 'italic' },
 
         LspTroubleText = { fg = c.fg_dark },
         LspTroubleCount = { fg = c.magenta, bg = c.fg_gutter },
@@ -581,6 +577,7 @@ function M.setup_hl_colors(c, colors)
         DevIconAlias = { fg = c.yellow },
         DevIconStarship = { fg = c.magenta },
         DevIconREADME = { fg = c.red },
+        DevIconZshOverrides = { fg = c.purple },
     }
 
     return theme
