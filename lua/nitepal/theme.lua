@@ -1,5 +1,5 @@
 local utils = require('nitepal.utils')
-
+local config = require('nitepal.config')
 local darken = utils.darken
 local lighten = utils.lighten
 local brighten = utils.brighten
@@ -7,59 +7,73 @@ local brighten = utils.brighten
 local M = {}
 
 function M.generate(style)
+    --@class Palette
     local colors = require('nitepal.palette').get_colors()
+    local scheme = {}
 
     colors = colors[style] or colors.dark
 
-    local scheme = {}
+    local static = {
+        bg = colors.bg,
+        blue0 = colors.blue,
+        red = colors.red,
+        red1 = colors.orange,
+        none = colors.none,
+    }
+
+    local function bg(shade)
+        shade = shade or 0
+
+        return config.options.contrast == true and darken(colors.bg, shade) or colors.bg
+    end
 
     if vim.o.background == 'dark' then
-        scheme = {
+        local bg_lighter = lighten(colors.bg, 0.01)
+        local highlight = brighten(colors.alt_black, 0.05)
+
+        scheme = vim.tbl_deep_extend('force', static, {
+            error = colors.alt_red,
             fg = colors.fg,
-            bg = colors.bg,
-            bg_dark = darken(colors.bg, 0.05),
-            bg_float = colors.none,
-            bg_highlight = brighten(colors.alt_black, 0.05),
-            bg_popup = colors.bg,
+            fg_dark = colors.fg,
             bg_search = colors.blue,
-            bg_sidebar = lighten(colors.bg, 0.01),
+            bg_dark = bg(0.05),
+            bg_float = bg(0.05),
+            bg_highlight = highlight,
+            bg_popup = bg(0.05),
+            bg_sidebar = bg_lighter,
             bg_statusline = '#1f2335',
             bg_visual = '#364A82',
             black = colors.alt_black,
             border = colors.alt_black,
             blue = '#7aa2f7',
-            blue0 = colors.blue,
             blue1 = colors.bright_magenta,
             blue2 = '#0db9d7',
             blue5 = '#89ddff',
             blue6 = '#B4F9F8',
             blue7 = '#394b70',
-            border_highlight = colors.blue,
-            --  comment = '#565f89',
+            border_highlight = colors.fg,
             comment = lighten(brighten(colors.bg, 0.35), 0.025),
             cyan = colors.bright_blue,
-            dark3 = '#545c7e',
-            dark5 = '#737aa2',
+            dark3 = colors.gray2,
+            dark5 = colors.gray,
+            fg_gutter = brighten(colors.bg, 0.20),
+            fg_sidebar = colors.fg,
             diff = {
                 add = '#283B4D',
                 change = '#272D43',
                 delete = '#3F2D3D',
                 text = '#394b70',
             },
-            error = darken(colors.orange, 0.25),
-            fg_dark = colors.fg,
-            fg_gutter = '#3b4261',
-            fg_sidebar = colors.fg,
             git = {
                 add = colors.alt_cyan,
-                change = '#6183bb',
-                conflict = '#bb7a61',
+                change = colors.alt_white,
+                conflict = lighten(colors.orange, 0.4),
                 delete = '#914c54',
-                ignore = '#545c7e',
+                ignore = colors.gray2,
             },
             gitSigns = {
                 add = '#266d6a',
-                change = '#536c9e',
+                change = colors.gray3,
                 delete = colors.orange,
             },
             green = colors.bright_green,
@@ -70,68 +84,43 @@ function M.generate(style)
             magenta = colors.bright_purple,
             magenta2 = colors.alt_red,
             magenta3 = colors.pink,
-            none = colors.none,
             orange = colors.bright_orange,
             purple = colors.purple,
-            red = colors.red,
-            red1 = colors.orange,
             teal = colors.red,
             warning = colors.bright_orange,
             yellow = colors.bright_yellow,
             ['function'] = colors.pink,
             keyword = colors.bright_purple,
-        }
+        })
     else
-        scheme = {
-            bg = colors.bg,
+        scheme = vim.tbl_deep_extend('force', static, {
+            error = brighten(colors.red, -0.5),
+            fg = darken(colors.alt_blue, 0.25),
+            fg_dark = colors.gray,
+            fg_sidebar = colors.gray,
+            -- fg_gutter = '#a8aecb',
+            fg_gutter = brighten(colors.bg, -0.175),
             bg_dark = darken(colors.bg, 0.025),
-            bg_float = colors.bg,
-            bg_highlight = darken(colors.bg, 0.03),
-            bg_popup = colors.none,
             bg_search = '#7890dd',
+            bg_float = colors.bg,
+            bg_popup = colors.none,
+            bg_highlight = darken(colors.bg, 0.03),
             bg_sidebar = darken(colors.bg, 0.009),
             bg_statusline = darken(colors.bg, 0.009),
-            bg_visual = lighten(colors.red, 0.8),
+            bg_visual = lighten(colors.pink, 0.8),
+            border_highlight = '#7890dd',
             black = colors.bg,
             blue = brighten(colors.blue, 0.2),
-            blue0 = colors.blue,
             blue1 = lighten(brighten(colors.alt_blue, -0.2), 0.1),
-            -- blue1 = brighten(colors.alt_blue, -0.2),
             blue2 = darken(colors.alt_cyan, 0.1),
             blue5 = darken(colors.cyan, 0.05),
             blue6 = '#2e5857',
             blue7 = '#92a6d5',
             border = '#e9e9ed',
-            border_highlight = '#7890dd',
-            -- comment = '#848cb5',
-            -- comment = brighten(darken(colors.fg, 0.2), -0.1),
             comment = brighten(lighten(colors.fg, 0.6), -0.2),
             cyan = colors.red,
             dark3 = '#8990b3',
             dark5 = '#68709a',
-            diff = {
-                add = '#aecde6',
-                change = '#d6d8e3',
-                delete = '#dfccd4',
-                text = '#92a6d5',
-            },
-            error = darken(colors.orange, 0.5),
-            fg = darken(colors.alt_blue, 0.25),
-            fg_dark = '#6172b0',
-            fg_gutter = '#a8aecb',
-            fg_sidebar = '#6172b0',
-            git = {
-                add = colors.alt_cyan,
-                change = '#506d9c',
-                conflict = '#8a5946',
-                delete = '#c47981',
-                ignore = '#8990b3',
-            },
-            gitSigns = {
-                add = '#399a96',
-                change = '#6482bd',
-                delete = brighten(colors.red, -0.2),
-            },
             green = darken(colors.bright_green, 0.4),
             green1 = brighten(colors.bright_blue, -0.15),
             green2 = colors.alt_cyan,
@@ -142,16 +131,22 @@ function M.generate(style)
             magenta3 = brighten(colors.bright_purple, -0.25),
             orange = colors.bright_orange,
             purple = colors.red,
-            red = colors.red,
-            red1 = colors.orange,
             teal = darken(colors.bright_red, 0.15),
             terminal_black = colors.black,
             warning = colors.bright_yellow,
             yellow = brighten(colors.bright_red, -0.05),
             ['function'] = brighten(colors.bright_purple, -0.25),
             keyword = darken(colors.bright_red, 0.05),
-            none = colors.none,
-        }
+            diff = { add = '#aecde6', change = '#d6d8e3', delete = '#dfccd4', text = '#92a6d5' },
+            git = {
+                add = colors.alt_cyan,
+                change = '#506d9c',
+                conflict = '#8a5946',
+                delete = '#c47981',
+                ignore = '#8990b3',
+            },
+            gitSigns = { add = '#399a96', change = '#6482bd', delete = brighten(colors.red, -0.2) },
+        })
     end
 
     return colors, scheme
@@ -206,7 +201,6 @@ function M.init()
     set_terminal_colors(colors)
     set_syntax(theme.base)
     set_syntax(theme.plugins)
-    -- util.autocmds(theme.config)
 end
 
 function M.generate_lualine(style)

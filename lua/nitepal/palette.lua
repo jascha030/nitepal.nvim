@@ -5,14 +5,21 @@ local palette = {
     -- fg             = '',
     -- bg             = '',
 
+
     white          = '#969ac9',
     bright_white   = '#fffcfc',
     alt_white      = '#6183bb',
 
     black          = '#32466e',
     bright_black   = '#465a82',
-    dark_black     = '#1D202F',
+    -- dark_black     = '#1D202F',
+    dark_black     = '#1f2335',
     alt_black      = '#232235',
+
+    gray           = '#737aa2',
+    gray1          = '#6172b0',
+    gray2          = '#545c7e',
+    gray3          = '#3b4261',
 
     red            = '#ea1479',
     bright_red     = '#f47cb4',
