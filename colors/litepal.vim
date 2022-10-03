@@ -1,1 +1,1 @@
-lua require('nitepal').colorscheme('light')
+lua require('nitepal').colorscheme('light') 
