@@ -1,7 +1,18 @@
-local utils = require('utils')
-local M = {}
+local utils = require('nitepal.utils')
+local config = require('nitepal.config')
 
+local M = {}
 function M.setup_hl_colors(c, colors)
+    local function bg(name, color)
+        color = color or colors.bg
+
+        if config.options.transparent[name] and config.options.transparent[name] == true then
+            return colors.none
+        end
+
+        return color
+    end
+
     local theme = {}
 
     theme.base = {
@@ -28,21 +39,21 @@ function M.setup_hl_colors(c, colors)
         SignColumnSB = { bg = c.bg_sidebar, fg = c.fg_gutter },
         Substitute = { bg = c.red, fg = c.black },
         LineNr = { fg = c.fg_gutter },
-        CursorLineNr = { fg = c.dark5 },
+        -- CursorLineNr = { fg = c.dark5 },
+        CursorLineNr = { fg = c.fg },
         MatchParen = { fg = c.orange, style = 'bold' },
         ModeMsg = { fg = c.fg_dark, style = 'bold' },
         MsgArea = { fg = c.fg_dark },
-
         MoreMsg = { fg = c.blue },
         NonText = { fg = c.dark3 },
-        Normal = { fg = c.fg, c.none },
-        NormalNC = { fg = c.fg, bg = c.none },
-        NormalSB = { fg = c.fg_sidebar, bg = c.bg_sidebar },
-        NormalFloat = { fg = c.fg, bg = c.bg_float },
-        FloatBorder = { fg = c.border_highlight, bg = c.bg_float },
-        Pmenu = { bg = c.bg_popup, fg = c.fg },
+        Normal = { fg = c.fg, bg = bg('background') },
+        NormalNC = { fg = c.fg, bg = bg('background') },
+        NormalSB = { fg = c.fg_sidebar, bg = bg('sidebars', c.bg_sidebar) },
+        NormalFloat = { fg = c.fg, bg = bg('floats', c.bg_float) },
+        FloatBorder = { fg = c.border_highlight, bg = bg('floats', c.bg_float) },
+        Pmenu = { bg = bg('popups', c.bg_popup), fg = c.fg },
         PmenuSel = { bg = c.fg_gutter },
-        PmenuSbar = { bg = c.bg_popup },
+        PmenuSbar = { bg = bg('popups', c.bg_popup) },
         PmenuThumb = { bg = c.fg_gutter },
         Question = { fg = c.blue },
         QuickFixLine = { bg = c.bg_visual, style = 'bold' },
@@ -78,22 +89,19 @@ function M.setup_hl_colors(c, colors)
         PreProc = { fg = c.magenta },
         Type = { fg = c.blue1 },
         Special = { fg = c.blue1 },
-
         Underlined = { style = 'underline' },
         Bold = { style = 'bold' },
         Italic = { style = 'italic' },
+        Error = { fg = c.error, style = 'underline' },
 
-        Error = { fg = c.error },
         qfLineNr = { fg = c.dark5 },
         qfFileName = { fg = c.blue },
-
         htmlH1 = { fg = c.magenta, style = 'bold' },
         htmlH2 = { fg = c.blue, style = 'bold' },
 
         mkdCodeDelimiter = { bg = c.terminal_black, fg = c.fg },
         mkdCodeStart = { fg = c.teal, style = 'bold' },
         mkdCodeEnd = { fg = c.teal, style = 'bold' },
-
         markdownHeadingDelimiter = { fg = c.orange, style = 'bold' },
         markdownCode = { fg = c.teal },
         markdownCodeBlock = { fg = c.teal },
@@ -102,7 +110,7 @@ function M.setup_hl_colors(c, colors)
         markdownLinkText = { fg = c.blue, style = 'underline' },
 
         debugPC = { bg = c.bg_sidebar },
-        -- debugBreakpoint = { bg = util.darken(c.info, 0.1), fg = c.info },
+        debugBreakpoint = { bg = utils.darken(c.info, 0.1), fg = c.info },
         LspReferenceText = { bg = c.fg_gutter },
         LspReferenceRead = { bg = c.fg_gutter },
         LspReferenceWrite = { bg = c.fg_gutter },
@@ -112,10 +120,10 @@ function M.setup_hl_colors(c, colors)
         DiagnosticInfo = { fg = c.info },
         DiagnosticHint = { fg = c.hint },
 
-        -- DiagnosticVirtualTextError = { bg = util.darken(c.error, 0.1), fg = c.error },
-        -- DiagnosticVirtualTextWarn = { bg = util.darken(c.warning, 0.1), fg = c.warning },
-        -- DiagnosticVirtualTextInfo = { bg = util.darken(c.info, 0.1), fg = c.info },
-        -- DiagnosticVirtualTextHint = { bg = util.darken(c.hint, 0.1), fg = c.hint },
+        DiagnosticVirtualTextError = { bg = utils.brighten(c.error, -0.3), fg = utils.brighten(c.error, 0.2) },
+        DiagnosticVirtualTextWarn = { bg = utils.brighten(c.warning, -0.3), fg = utils.brighten(c.warning, 0.2) },
+        DiagnosticVirtualTextInfo = { bg = utils.brighten(c.info, -0.3), fg = utils.brighten(c.info, 0.2) },
+        DiagnosticVirtualTextHint = { bg = utils.brighten(c.hint, -0.3), fg = utils.brighten(c.hint, 0.2) },
 
         DiagnosticUnderlineError = { style = 'undercurl', sp = c.error },
         DiagnosticUnderlineWarn = { style = 'undercurl', sp = c.warning },
@@ -194,7 +202,7 @@ function M.setup_hl_colors(c, colors)
         NeogitRemote = { fg = c.purple },
         NeogitHunkHeader = { bg = c.bg_highlight, fg = c.fg },
         NeogitHunkHeaderHighlight = { bg = c.fg_gutter, fg = c.blue },
-        -- NeogitDiffContextHighlight = { bg = util.darken(c.fg_gutter, 0.5), fg = c.fg_dark },
+        -- NeogitDiffContextHighlight = { bg = utils.darken(c.fg_gutter, 0.5), fg = c.fg_dark },
         NeogitDiffDeleteHighlight = { fg = c.git.delete, bg = c.diff.delete },
         NeogitDiffAddHighlight = { fg = c.git.add, bg = c.diff.add },
 
@@ -217,7 +225,6 @@ function M.setup_hl_colors(c, colors)
         NvimTreeIndentMarker = { fg = c.fg_gutter },
         NvimTreeImageFile = { fg = c.fg_sidebar },
         NvimTreeSymlink = { fg = c.blue },
-
         FernBranchText = { fg = c.blue },
 
         GlyphPalette1 = { fg = c.red1 },
@@ -280,7 +287,7 @@ function M.setup_hl_colors(c, colors)
         BufferVisibleTarget = { bg = c.bg_statusline, fg = c.red },
         BufferInactive = { bg = c.bg_statusline, fg = c.dark5 },
         BufferInactiveIndex = { bg = c.bg_statusline, fg = c.dark5 },
-        -- BufferInactiveMod = { bg = c.bg_statusline, fg = util.darken(c.warning, 0.7) },
+        BufferInactiveMod = { bg = c.bg_statusline, fg = utils.darken(c.warning, 0.7) },
         BufferInactiveSign = { bg = c.bg_statusline, fg = c.border_highlight },
         BufferInactiveTarget = { bg = c.bg_statusline, fg = c.red },
         BufferTabpages = { bg = c.bg_statusline, fg = c.none },
@@ -291,7 +298,7 @@ function M.setup_hl_colors(c, colors)
 
         HopNextKey = { fg = c.red, style = 'bold' },
         HopNextKey1 = { fg = c.magenta2, style = 'bold' },
-        -- HopNextKey2 = { fg = utils.darken(c.blue2, 0.3) },
+        HopNextKey2 = { fg = utils.darken(c.blue2, 0.3) },
 
         HopUnmatched = { fg = c.dark3 },
 
@@ -352,7 +359,6 @@ function M.setup_hl_colors(c, colors)
         DevIconIni = { fg = '#6d8086' },
         DevIconGodotProject = { fg = '#6d8086' },
         DevIconGDScript = { fg = '#6d8086' },
-
         DevIconRb = { fg = c.gitSigns.delete },
         DevIconRakefile = { fg = c.gitSigns.delete },
         DevIconRake = { fg = c.gitSigns.delete },
@@ -362,7 +368,6 @@ function M.setup_hl_colors(c, colors)
         DevIconErb = { fg = c.gitSigns.delete },
         DevIconBrewfile = { fg = c.gitSigns.delete },
         DevIconPackageLockJson = { fg = c.gitSigns.delete },
-
         DevIconScala = { fg = '#cc3e44' },
         DevIconRs = { fg = '#dea584' },
         DevIconMakefile = { fg = '#6d8086' },
@@ -390,13 +395,10 @@ function M.setup_hl_colors(c, colors)
         DevIconCMake = { fg = '#6d8086' },
         DevIconLock = { fg = '#bbbbbb' },
         DevIconPackageJson = { fg = '#e8274b' },
-
         DevIconPrisma = { fg = colors.bright_white },
         DevIconLog = { fg = colors.bright_white },
-
         DevIconOpenTypeFont = { fg = '#ECECEC' },
         DevIconImportConfiguration = { fg = '#ECECEC' },
-
         DevIconNix = { fg = '#7ebae4' },
         DevIconTex = { fg = '#3D6117' },
         DevIconGitCommit = { fg = '#41535b' },
@@ -407,10 +409,9 @@ function M.setup_hl_colors(c, colors)
         DevIconGulpfile = { fg = '#cc3e44' },
         DevIconNPMrc = { fg = '#E8274B' },
         DevIconGitModules = { fg = '#41535b' },
-        DevIconCrystal = { fg = '#000000' },
+        DevIconCrystal = { fg = colors.alt_black },
         DevIconFennel = { fg = '#fff3d7' },
         DevIconCMakeLists = { fg = '#6d8086' },
-
         -- Devicons
         DevIconHtml = { fg = colors.orange },
         DevIconLua = { fg = colors.blue1 },
@@ -424,7 +425,6 @@ function M.setup_hl_colors(c, colors)
         DevIconCp = { fg = colors.alt_cyan },
         DevIconTsx = { fg = colors.alt_cyan },
         DevIconGitLogo = { fg = colors.orange },
-
         DevIconSwift = { fg = colors.orange },
         DevIconGitIgnore = { fg = colors.black },
         DevIconPyo = { fg = colors.alt_cyan },
@@ -441,7 +441,6 @@ function M.setup_hl_colors(c, colors)
         DevIconJpg = { fg = c.purple },
         DevIconJpeg = { fg = c.purple },
         DevIconIco = { fg = colors.bright_green },
-
         DevIconVimrc = { fg = colors.green },
         DevIconPhp = { fg = c.purple },
         DevIconGvimrc = { fg = colors.green },
@@ -457,7 +456,6 @@ function M.setup_hl_colors(c, colors)
         DevIconTerminal = { fg = colors.green },
         DevIconEx = { fg = c.purple },
         DevIconSvelte = { fg = colors.alt_red },
-
         DevIconFsscript = { fg = colors.alt_cyan },
         DevIconFsi = { fg = colors.alt_cyan },
         DevIconKotlin = { fg = colors.orange },
@@ -476,7 +474,6 @@ function M.setup_hl_colors(c, colors)
         DevIconRproj = { fg = colors.green },
         DevIconTextResource = { fg = colors.bright_green },
         DevIconTextScene = { fg = c.purple },
-
         DevIconFsharp = { fg = colors.alt_cyan },
         DevIconPsd = { fg = colors.alt_cyan },
         DevIconPsb = { fg = colors.alt_cyan },
@@ -500,7 +497,6 @@ function M.setup_hl_colors(c, colors)
         DevIconLeex = { fg = c.purple },
         DevIconEpp = { fg = c.bright_yellow },
         DevIconDrools = { fg = colors.bright_red },
-
         DevIconTor = { fg = colors.alt_cyan },
         DevIconBat = { fg = colors.alt_green },
         DevIconHbs = { fg = colors.orange },
@@ -542,7 +538,6 @@ function M.setup_hl_colors(c, colors)
         DevIconHrl = { fg = colors.dark_red },
         DevIconScss = { fg = colors.alt_red },
         DevIconBashrc = { fg = colors.green },
-
         DevIconZig = { fg = colors.bright_yellow },
         DevIconPm = { fg = colors.alt_cyan },
         DevIconFavicon = { fg = colors.bright_green },
