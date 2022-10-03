@@ -3,13 +3,15 @@ local M = {}
 --@class Config
 local defaults = {
     style = false, -- default: false, Choices: false 'dark', 'light'. When false vim.o.background will be used.
-    disable = {
+    transparent = {
         background = false,
         cursorline = false,
         sidebars = false,
+        floats = false,
+        popups = false,
     },
+    contrast = true,
     italics = true,
-    disabled_as_transparent = true, -- When true, hl options that are set in disable will be set as "NONE".
     colors = {
         --@field overrides Palette
         overrides = {}, -- Override colors defined in nitepal.palette.
