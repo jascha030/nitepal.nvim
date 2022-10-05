@@ -212,8 +212,8 @@ function M.setup_hl_colors(c, colors)
         GitSignsAdd = { fg = c.gitSigns.add },
         GitSignsChange = { fg = c.gitSigns.change },
         GitSignsDelete = { fg = c.gitSigns.delete },
-        TelescopeBorder = { fg = c.border_highlight, bg = c.bg_float },
-        TelescopeNormal = { fg = c.fg, bg = c.bg_float },
+        TelescopeBorder = { fg = c.border_highlight, bg = bg('floats', c.bg_foat) },
+        TelescopeNormal = { fg = c.fg, bg = bg('floats', c.bg_foat) },
 
         NvimTreeNormal = { fg = c.fg_sidebar, bg = bg('sidebars', c.bg_sidebar) },
         NvimTreeNormalNC = { fg = c.fg_sidebar, bg = bg('sidebars', c.bg_sidebar) },
@@ -251,7 +251,7 @@ function M.setup_hl_colors(c, colors)
         DiagnosticWarning = { link = 'DiagnosticWarn' },
         DiagnosticInformation = { link = 'DiagnosticInfo' },
 
-        LspFloatWinNormal = { bg = c.bg_float },
+        LspFloatWinNormal = { bg = bg('floats', c.bg_foat) },
         LspFloatWinBorder = { fg = c.border_highlight },
         LspSagaBorderTitle = { fg = c.cyan },
         LspSagaHoverBorder = { fg = c.blue },
@@ -313,8 +313,8 @@ function M.setup_hl_colors(c, colors)
         LightspeedShortcut = { bg = c.magenta2, fg = c.fg, style = 'bold,underline' },
         LightspeedUnlabeledMatch = { fg = c.blue2, style = 'bold' },
 
-        CmpDocumentation = { fg = c.fg, bg = c.bg_float },
-        CmpDocumentationBorder = { fg = c.border_highlight, bg = c.bg_float },
+        CmpDocumentation = { fg = c.fg, bg = bg('floats', c.bg_foat) },
+        CmpDocumentationBorder = { fg = c.border_highlight, bg = bg('floats', c.bg_foat) },
         CmpItemAbbr = { fg = c.fg, bg = c.none },
         CmpItemAbbrDeprecated = { fg = c.fg_gutter, bg = c.none, style = 'strikethrough' },
         CmpItemAbbrMatch = { fg = c.blue1, bg = c.none },
