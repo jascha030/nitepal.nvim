@@ -215,8 +215,8 @@ function M.setup_hl_colors(c, colors)
         TelescopeBorder = { fg = c.border_highlight, bg = c.bg_float },
         TelescopeNormal = { fg = c.fg, bg = c.bg_float },
 
-        NvimTreeNormal = { fg = c.fg_sidebar, bg = c.bg_sidebar },
-        NvimTreeNormalNC = { fg = c.fg_sidebar, bg = c.bg_sidebar },
+        NvimTreeNormal = { fg = c.fg_sidebar, bg = bg('sidebars', c.bg_sidebar) },
+        NvimTreeNormalNC = { fg = c.fg_sidebar, bg = bg('sidebars', c.bg_sidebar) },
         NvimTreeRootFolder = { fg = c.blue, style = 'bold' },
         NvimTreeGitDirty = { fg = c.git.change },
         NvimTreeGitNew = { fg = c.git.add },
