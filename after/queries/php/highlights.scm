@@ -23,5 +23,5 @@
   (name) @constant)
    (set! "priority" 105))
 
-(namespace_use_declaration) @namespaceUse
- ; (set! "priority" 105))
+((namespace_use_declaration) @namespace.use
+ (set! "priority" 105))

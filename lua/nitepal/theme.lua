@@ -32,7 +32,7 @@ function M.generate(style)
         local highlight = brighten(colors.alt_black, 0.05)
 
         scheme = vim.tbl_deep_extend('force', static, {
-            error = colors.alt_red,
+            error = brighten(colors.alt_red, 0.15),
             fg = colors.fg,
             fg_dark = colors.fg,
             bg_search = colors.blue,
@@ -94,7 +94,7 @@ function M.generate(style)
         })
     else
         scheme = vim.tbl_deep_extend('force', static, {
-            error = brighten(colors.red, -0.5),
+            error = brighten(colors.red, -0.2),
             fg = darken(colors.alt_blue, 0.25),
             fg_dark = colors.gray,
             fg_sidebar = colors.gray,
@@ -107,7 +107,7 @@ function M.generate(style)
             bg_highlight = darken(colors.bg, 0.03),
             bg_sidebar = darken(colors.bg, 0.009),
             bg_statusline = darken(colors.bg, 0.009),
-            bg_visual = lighten(colors.pink, 0.8),
+            bg_visual = brighten(colors.bright_magenta, 0.4),
             border_highlight = '#7890dd',
             black = colors.bg,
             blue = brighten(colors.blue, 0.2),
@@ -118,7 +118,7 @@ function M.generate(style)
             blue7 = '#92a6d5',
             border = '#e9e9ed',
             comment = brighten(lighten(colors.fg, 0.6), -0.2),
-            cyan = colors.red,
+            cyan = brighten(colors.red, -0.1),
             dark3 = '#8990b3',
             dark5 = '#68709a',
             green = darken(colors.bright_green, 0.4),
