@@ -1,3 +1,5 @@
+; extends
+
 [
   "use"
   "namespace"
@@ -15,6 +17,6 @@
   (member_call_expression 
     object: (variable_name) @object.var)
   (class_constant_access_expression . 
-                                    [(name) (qualified_name)] @class.name
+                                    [(name) (qualified_name)] @class.declaration
                                     (name) @constant)
 ] (set! "priority" 105)

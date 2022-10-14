@@ -11,7 +11,16 @@ local function _treesitter()
         return
     end
 
-    hl.set_custom_captures(require('nitepal.config').options.treesitter.captures)
+    hl.set_custom_captures({
+        ['keyword.scope'] = 'TSKeywordScope',
+        ['class.declaration'] = 'TSClassName',
+        ['scope.relative'] = 'TSScopeRelative',
+        ['object.var'] = 'TSMemberObjectVar',
+        ['selector.tag'] = 'TSConstant',
+        ['selector.id'] = 'TSSelector',
+        ['selector.class'] = 'TSCSSlassName',
+        ['scope.static'] = 'TSScopeStatic',
+    })
 end
 
 function nitepal.colorscheme(style)

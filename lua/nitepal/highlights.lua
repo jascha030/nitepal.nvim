@@ -154,7 +154,7 @@ function M.setup_hl_colors(c, colors)
         TSNote = { fg = c.bg, bg = c.info },
         TSWarning = { fg = c.bg, bg = c.warning },
         TSDanger = { fg = c.bg, bg = c.error },
-        TSClassName = { fg = colors.yellow },
+        TSClassName = { fg = colors.bright_yellow },
         TSMethod = { fg = c.blue1 },
         TSModifierFinal = { fg = c.red, style = 'italic' },
         TSScopeRelative = { fg = c.magenta, style = 'italic' },
