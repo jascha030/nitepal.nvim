@@ -1,5 +1,6 @@
 local utils = require('nitepal.utils')
 local config = require('nitepal.config')
+
 local darken = utils.darken
 local lighten = utils.lighten
 local brighten = utils.brighten
@@ -96,7 +97,7 @@ function M.generate(style)
         scheme = vim.tbl_deep_extend('force', static, {
             error = brighten(colors.red, -0.2),
             fg = darken(colors.alt_blue, 0.25),
-            fg_dark = colors.gray,
+            fg_dark = colors.fg,
             fg_sidebar = colors.gray,
             -- fg_gutter = '#a8aecb',
             fg_gutter = brighten(colors.bg, -0.175),
