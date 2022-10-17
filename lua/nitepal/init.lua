@@ -1,19 +1,5 @@
 local nitepal = {}
 
-local function _treesitter()
-    if require('nitepal.config').options.treesitter.enable ~= true then
-        return
-    end
-
-    local ok, hl = pcall(require, 'nvim-treesitter.highlight')
-
-    if not ok then
-        return
-    end
-
-    hl.set_custom_captures(require('nitepal.config').options.treesitter.captures)
-end
-
 function nitepal.colorscheme(style)
     if require('nitepal.config').options.style == false then
         style = style or vim.o.background
@@ -39,8 +25,6 @@ function nitepal.colorscheme(style)
 
     vim.o.termguicolors = true
     vim.g.colors_name = style == 'dark' and 'nitepal' or 'litepal'
-
-    _treesitter()
 
     require('nitepal.theme').init()
 end
