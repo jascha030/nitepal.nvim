@@ -160,12 +160,13 @@ function M.setup_hl_colors(c, colors)
         TSScopeRelative = { fg = c.magenta, style = 'italic' },
         TSConstant = { link = 'Constant' },
         TSConstBuiltin = { link = 'Constant' },
+        TSConstantClass = { link = 'TSKeyword' },
         TSMemberObjectVar = { fg = c.fg },
         TSField = { fg = c.green1 },
 
         TSKeyword = { fg = c.keyword, style = 'italic' },
         TSKeywordFunction = { link = 'KeywordFunction' },
-        TSKeywordScope = { fg = colors.red },
+        TSKeywordScope = { fg = colors.red, style = 'italic' },
 
         TSCSSClassName = { fg = c.purple },
         TSLabel = { fg = c.blue },
@@ -176,14 +177,18 @@ function M.setup_hl_colors(c, colors)
         TSPunctSpecial = { fg = c.red },
         TSStringRegex = { fg = c.blue6 },
         TSStringEscape = { fg = c.magenta },
-        TSParameter = { fg = c.red },
-        TSVariableBuiltin = { fg = c.red },
         TSTextReference = { fg = c.teal },
         TSNamespace = { fg = c.fg },
         TSType = { fg = c.fg },
         TSTypeBuiltin = { fg = c.magenta, style = 'italic' },
         TSFunctionBuiltin = { link = 'TSTypeBuiltin' },
         TSScopeStatic = { fg = colors.red, style = 'italic' },
+
+        TSVariableOperator = { fg = c.fg, style = 'bold' },
+
+        TSVariableBuiltin = { fg = c.red },
+        TSParameter = { fg = c.red },
+        TSParameterOperator = { fg = c.red, style = 'bold' },
 
         LspTroubleText = { fg = c.fg_dark },
         LspTroubleCount = { fg = c.magenta, bg = c.fg_gutter },

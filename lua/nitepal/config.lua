@@ -22,12 +22,15 @@ local defaults = {
         captures = {
             ['keyword.scope'] = 'TSKeywordScope',
             ['class.declaration'] = 'TSClassName',
+            ['constant.class'] = 'TSConstantClass',
             ['scope.relative'] = 'TSScopeRelative',
             ['object.var'] = 'TSMemberObjectVar',
             ['selector.tag'] = 'TSConstant',
             ['selector.id'] = 'TSSelector',
             ['selector.class'] = 'TSCSSlassName',
             ['scope.static'] = 'TSScopeStatic',
+            ['variable.operator'] = 'TSVariableOperator',
+            ['parameter.operator'] = 'TSParameterOperator',
         },
     },
 }
