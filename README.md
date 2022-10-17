@@ -1,6 +1,16 @@
-# Nitepal.nvim (WIP)
+# nitepal.nvim
 
 Colorscheme I have been using, which started as Material Palenight but has evolved over time to fit my personal taste.
+
+**⚠️ Warning: some colors or highlight groups might change as this is an early release.**
+
+## Installation
+
+**Using Packer:**
+
+```lua
+use { 'jascha030/nitepal.nvim' }
+```
 
 ## Config
 
@@ -8,34 +18,17 @@ Colorscheme I have been using, which started as Material Palenight but has evolv
 local defaults = {
     style = false, -- default: false, Choices: false 'dark', 'light'. When false vim.o.background will be used.
     transparent = {
-        background = false,
-        cursorline = false,
-        sidebars = false,
-        floats = false,
-        popups = false,
+        background = false -- Disables editor bg (if you want to use your terminal bg instead),
+        sidebars = false 
+        floats = false 
+        popups = false
     },
-    contrast = true, -- Darker backgrounds for sidebars, popups, floats etc. (when not transparent).
+    contrast = true,
     italics = true,
     colors = {
         --@field overrides Palette
         overrides = {}, -- Override colors defined in nitepal.palette.
         custom = {}, -- Add custom colors.
-    },
-    treesitter = {
-        enable = true, -- Enable custom treesitter queries in scheme.
-        captures = { -- Custom capture groups and highlightnames.
-            ['className'] = 'TSClassName',
-            ['modifier.final'] = 'TSModifierFinal',
-            ['scope.relative'] = 'TSScopeRelative',
-            ['object.var'] = 'TSMemberObjectVar',
-            ['namespaceUse'] = 'TSNamespaceUse',
-            ['selector.tag'] = 'TSConstant',
-            ['selector.id'] = 'TSSelector',
-            ['selector.class'] = 'TSClassName',
-            ['namespace.keyword'] = 'TSNamespaceKeyword',
-            ['namespace.use'] = 'TSNamespaceUse',
-            ['scope.static'] = 'TSScopeStatic',
-        },
     },
 }
 ```
