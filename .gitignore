@@ -1,8 +1,10 @@
-.idea
-.vscode
+# IDE Project Files
+.idea/
+.vscode/
 
+# Notes
 *.txt
 hl-icons.lua
 
-.DS_Store
+*.DS_Store
 

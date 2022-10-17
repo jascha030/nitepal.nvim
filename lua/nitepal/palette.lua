@@ -2,17 +2,12 @@ local M = {}
 
 --@class Palette
 local palette = {
-    -- fg             = '',
-    -- bg             = '',
-
-
     white          = '#969ac9',
     bright_white   = '#fffcfc',
     alt_white      = '#6183bb',
 
     black          = '#32466e',
     bright_black   = '#465a82',
-    -- dark_black     = '#1D202F',
     dark_black     = '#1f2335',
     alt_black      = '#232235',
 
@@ -54,7 +49,6 @@ local palette = {
     bright_purple  = '#bb9af7',
 
     pink           = '#efc9f2',
-
     none           = 'NONE',
 }
 
