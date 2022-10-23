@@ -13,6 +13,7 @@
     . 
     [(name) (qualified_name)] @class.declaration
     (name) @constant.class)
+  (interface_declaration name: (name) @interface.declaration)
 ] (set! "priority" 105)
 
 [
