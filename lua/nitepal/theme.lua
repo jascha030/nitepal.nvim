@@ -77,7 +77,7 @@ function M.generate(style)
                 change = colors.gray3,
                 delete = colors.orange,
             },
-            green = colors.bright_green,
+            green = brighten(colors.bright_green, 0.5),
             green1 = colors.bright_blue,
             green2 = colors.alt_cyan,
             hint = colors.bright_cyan,
@@ -137,7 +137,8 @@ function M.generate(style)
             warning = colors.bright_yellow,
             yellow = brighten(colors.bright_red, -0.05),
             ['function'] = brighten(colors.bright_purple, -0.25),
-            keyword = darken(colors.bright_red, 0.05),
+            -- keyword = brighten(darken(colors.alt_red, 0.02), 0.01),
+            keyword = colors.alt_red,
             diff = { add = '#aecde6', change = '#d6d8e3', delete = '#dfccd4', text = '#92a6d5' },
             git = {
                 add = colors.alt_cyan,
