@@ -1,6 +1,6 @@
 # nitepal.nvim
 
-Colorscheme I have been using, which started as Material Palenight but has evolved over time to fit my personal taste.
+Colorscheme I have been using, (mainly in Jetbrains IDE's) which started as Material Palenight but has evolved over time to fit my personal taste.
 
 **⚠️ Warning: some colors or highlight groups might change as this is an early release.**
 
@@ -32,3 +32,11 @@ local defaults = {
     },
 }
 ```
+
+## Acknowledgements
+
+Used the [folke/tokyonight.nvim](https://github.com/folke/tokyonight.nvim) codebase as an example to find out what would be a nice way to do this in lua, so you will see a lot of similar or even code taken directly from that repo.
+
+[Tokyonight](https://github.com/folke/tokyonight.nvim) is also the scheme I had been using myself, overriding a bunch of the colors. I also seem to like the code style, as it feels more in line with code style I use for other languages, (still relatively new to lua).
+
+[Material Theme UI](https://github.com/mallowigi/material-theme-issues) for Jetbrains was my original starting point and the scheme is ultimately based on the material palenight scheme.
