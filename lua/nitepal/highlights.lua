@@ -50,6 +50,7 @@ function M.setup_hl_colors(c, colors)
         NormalSB = { fg = c.fg_sidebar, bg = bg('sidebars', c.bg_sidebar) },
         NormalFloat = { fg = c.fg, bg = bg('floats', c.bg_float) },
         FloatBorder = { fg = c.border_highlight, bg = bg('floats', c.bg_float) },
+
         Pmenu = { bg = bg('popups', c.bg_popup), fg = c.fg },
         PmenuSel = { bg = c.fg_gutter },
         PmenuSbar = { bg = bg('popups', c.bg_popup) },
@@ -178,12 +179,12 @@ function M.setup_hl_colors(c, colors)
 
         ['@keyword.scope'] = { fg = colors.red, style = 'italic' },
         ['@keyword.function'] = { link = 'KeywordFunction' },
-        ['@keyword.operator'] = { link = '@variable' },
+        ['@keyword.operator'] = { fg = c.fg, style = 'bold' },
         ['@keyword.return'] = { link = '@keyword' },
 
         ['@variable'] = { fg = c.fg },
         ['@variable.builtin'] = { link = '@variable' },
-        ['@variable.operator'] = { link = '@variable' },
+        ['@variable.operator'] = { fg = c.fg, style = 'bold' },
         ['@type'] = { fg = c.fg },
         ['@namespace'] = { link = '@type' },
         ['@reference.scope'] = { fg = c.green },
@@ -204,9 +205,9 @@ function M.setup_hl_colors(c, colors)
         ['@define'] = { link = 'TSDefine' },
         ['@error'] = { link = 'TSError' },
         ['@exception'] = { link = 'TSException' },
-        ['@method.call'] = { link = 'TSMethodCall' },
+        ['@method.call'] = { link = '@method' },
         ['@none'] = { link = 'TSNone' },
-        ['@number'] = { link = 'TSNumber' },
+        ['@number'] = { fg = colors.red },
         ['@preproc'] = { link = 'TSPreProc' },
         -- ['@repeat'] = { link = 'TSRepeat' },
         -- ['@storageclass'] = { link = 'TSStorageClass' },
@@ -296,6 +297,8 @@ function M.setup_hl_colors(c, colors)
 
         LspFloatWinNormal = { bg = bg('floats', c.bg_foat) },
         LspFloatWinBorder = { fg = c.border_highlight },
+
+        LspInfoBorder = { link = 'FloatBorder' },
         LspSagaBorderTitle = { fg = c.cyan },
         LspSagaHoverBorder = { fg = c.blue },
         LspSagaRenameBorder = { fg = c.green },
