@@ -96,8 +96,8 @@ function M.generate(style)
     else
         scheme = vim.tbl_deep_extend('force', static, {
             error = brighten(colors.red, -0.2),
-            fg = darken(colors.alt_blue, 0.25),
-            fg_dark = colors.fg,
+            fg = lighten(brighten(colors.alt_blue, -0.4), 0.15),
+            fg_dark = brighten(lighten(colors.alt_blue, 0.1), -0.3),
             fg_sidebar = colors.gray,
             -- fg_gutter = '#a8aecb',
             fg_gutter = brighten(colors.bg, -0.175),
@@ -112,7 +112,7 @@ function M.generate(style)
             border_highlight = '#7890dd',
             black = colors.bg,
             blue = brighten(colors.blue, 0.2),
-            blue1 = lighten(brighten(colors.alt_blue, -0.2), 0.1),
+            blue1 = brighten(darken(colors.bright_blue, 0.1), -0.2),
             blue2 = darken(colors.alt_cyan, 0.1),
             blue5 = darken(colors.cyan, 0.05),
             blue6 = '#2e5857',
