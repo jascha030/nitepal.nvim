@@ -1,5 +1,9 @@
 # nitepal.nvim
 
+<p align="center">
+  <img src="https://github.com/jascha030/nitepal.nvim/blob/main/img/nitepal_php.png?raw=true" alt="Nitepal with a php project"/>
+</p>
+
 Colorscheme I have been using, (mainly in Jetbrains IDE's) which started as Material Palenight but has evolved over time to fit my personal taste.
 
 **⚠️ Warning: some colors or highlight groups might change as this is an early release.**
