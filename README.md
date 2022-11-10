@@ -1,4 +1,4 @@
-# nitepal.nvim
+# 🌚 nitepal.nvim
 
 <p align="center">
   <img src="https://github.com/jascha030/nitepal.nvim/blob/main/img/nitepal_php.png?raw=true" alt="Nitepal with a php project"/>
