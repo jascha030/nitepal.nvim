@@ -12,6 +12,8 @@
   "catch"
 ] @keyword
 
+(arguments (argument name: (name) @parameter.name))
+
 [
   (class_declaration 
     (name) @class.declaration)
@@ -43,4 +45,5 @@
   (set! "priority" 105))
 
 (object_creation_expression (name) @object.var)
+(text) @text
 
