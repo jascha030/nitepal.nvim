@@ -10,10 +10,13 @@
 [
   "try"
   "catch"
+  "throw"
+  "instanceof"
+  "from"
 ] @keyword
 
-(arguments (argument name: (name) @parameter.name))
 
+(arguments (argument name: (name) @parameter.name))
 [
   (class_declaration 
     (name) @class.declaration)
@@ -34,7 +37,11 @@
     (name) @constant.class)
   (interface_declaration 
     name: (name) @interface.declaration)
+  (method_declaration (visibility_modifier) @scope.relative)
+  (property_declaration (visibility_modifier) @keyword)
 ] (set! "priority" 105)
+
+((name) @keyword (#match? @keyword "^self$"))
 
 ((name) @keyword (#match? @keyword "^(exit|die)$"))
 (variable_name ("$") @variable.operator)
