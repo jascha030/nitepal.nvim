@@ -47,6 +47,7 @@ local palette = {
 
     purple         = '#9d7cd8',
     bright_purple  = '#bb9af7',
+    alt_purple     = '#C792EA',
 
     pink           = '#efc9f2',
     none           = 'NONE',
