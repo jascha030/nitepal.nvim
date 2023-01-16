@@ -91,7 +91,8 @@ function M.generate(style)
             warning = colors.bright_orange,
             yellow = colors.bright_yellow,
             ['function'] = colors.pink,
-            keyword = colors.bright_purple,
+            -- keyword = colors.bright_purple,
+            keyword = colors.alt_purple,
         })
     else
         scheme = vim.tbl_deep_extend('force', static, {
@@ -129,14 +130,15 @@ function M.generate(style)
             info = colors.cyan,
             magenta = brighten(colors.purple, -0.25),
             magenta2 = darken(colors.bright_red, 0.05),
-            magenta3 = brighten(colors.bright_purple, -0.25),
+            -- magenta3 = brighten(colors.bright_purple, -0.25),
+            magenta3 = brighten(colors.alt_purple, -0.25),
             orange = colors.bright_orange,
             purple = colors.red,
             teal = darken(colors.bright_red, 0.15),
             terminal_black = colors.black,
             warning = colors.bright_yellow,
             yellow = brighten(colors.bright_red, -0.05),
-            ['function'] = brighten(colors.bright_purple, -0.25),
+            ['function'] = brighten(colors.pink, -0.25),
             -- keyword = brighten(darken(colors.alt_red, 0.02), 0.01),
             keyword = colors.alt_red,
             diff = { add = '#aecde6', change = '#d6d8e3', delete = '#dfccd4', text = '#92a6d5' },
