@@ -85,4 +85,8 @@ function M.get_colors()
     return merge_colors(colors.variants, colors.palette)
 end
 
+function M.get_palette()
+    return colors
+end
+
 return M
