@@ -13,6 +13,7 @@
   "throw"
   "instanceof"
   "from"
+  "as"
 ] @keyword
 
 
