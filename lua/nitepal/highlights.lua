@@ -2,6 +2,7 @@ local utils = require('nitepal.utils')
 local config = require('nitepal.config')
 
 local M = {}
+
 function M.setup_hl_colors(c, colors)
     local function bg(name, color)
         color = color or colors.bg
@@ -181,7 +182,8 @@ function M.setup_hl_colors(c, colors)
         ['@keyword.operator'] = { fg = c.fg, style = 'bold' },
         ['@keyword.return'] = { link = '@keyword' },
         ['@conditional.keyword'] = { link = '@keyword' },
-        ['@conditional'] = { link = '@variable' },
+        ['@conditional.operator'] = { link = '@variable' },
+        ['@conditional'] = { link = '@keyword' },
 
         ['@variable'] = { fg = c.fg },
         ['@variable.builtin'] = { link = '@variable' },
