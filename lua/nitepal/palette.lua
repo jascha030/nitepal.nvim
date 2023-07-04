@@ -1,6 +1,44 @@
 local M = {}
 
 --@class Palette
+--@field white string #969ac9
+--@field bright_white string #fffcfc
+--@field alt_white string #6183bb
+--@field black string #32466e
+--@field bright_black string #465a82
+--@field dark_black string #1f2335
+--@field alt_black string #232235
+--@field gray string #737aa2
+--@field gray1 string #6172b0
+--@field gray2 string #545c7e
+--@field gray3 string #3b4261
+--@field red string #ea1479
+--@field bright_red string #f47cb4
+--@field dark_red string #d4007c
+--@field alt_red string #ff007c
+--@field orange string #f05033
+--@field bright_orange string #ff8000
+--@field yellow string #ffcc00
+--@field bright_yellow string #ffae31
+--@field green string #2da44e
+--@field bright_green string #9ece6a
+--@field dark_green string #5d7b23
+--@field alt_green string #8fd742
+--@field cyan string #0a6e81
+--@field bright_cyan string #1abc9c
+--@field alt_cyan string #41a6b5
+--@field blue string #3d59a1
+--@field bright_blue string #8494FF
+--@field dark_blue string #364A82
+--@field alt_blue string #0083f7
+--@field magenta string #6f42c1
+--@field bright_magenta string #A59BFF
+--@field alt_magenta string #5f5fec
+--@field purple string #9d7cd8
+--@field bright_purple string #bb9af7
+--@field alt_purple string #C792EA
+--@field pink string #efc9f2
+--@field none string NONE
 local palette = {
     white          = '#969ac9',
     bright_white   = '#fffcfc',
