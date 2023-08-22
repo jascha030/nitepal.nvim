@@ -9,4 +9,3 @@
           absolute: (dir_sep) 
           relative: (dir_sep)
           ] @punctuation.delimiter) @variable
-

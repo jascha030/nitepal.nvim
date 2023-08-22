@@ -225,6 +225,7 @@ function M.setup_hl_colors(c, colors)
         ['@lsp.type.type'] = { link = '@type' },
         ['@lsp.type.typeParameter'] = { link = '@type' },
         ['@lsp.type.variable'] = { link = '@variable' },
+        ['@title'] = { link = 'Title' },
 
         -- ['@lsp.type.decorator'] = {},
         -- ['@lsp.type.enum'] = {},
