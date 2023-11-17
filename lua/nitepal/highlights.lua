@@ -68,6 +68,7 @@ function M.setup_hl_colors(c, colors)
         SpellRare = { sp = c.hint, style = 'undercurl' },
         StatusLine = { fg = c.fg_sidebar, bg = c.bg_statusline },
         StatusLineNC = { fg = c.fg_gutter, bg = c.bg_statusline },
+        TSCSSClassName = { fg = c.purple },
         TabLine = { bg = colors.bg, fg = c.fg_dark },
         TabLineFill = { bg = c.bg },
         TabLineSel = { fg = c.bg_statusline, bg = c.blue },
@@ -134,24 +135,7 @@ function M.setup_hl_colors(c, colors)
 
         LspSignatureActiveParameter = { fg = colors.bright_purple },
         LspCodeLens = { fg = c.comment },
-        ALEErrorSign = { fg = c.error },
-        ALEWarningSign = { fg = c.warning },
-    }
 
-    if not vim.diagnostic then
-        local severity_map = { Error = 'Error', Warn = 'Warning', Info = 'Information', Hint = 'Hint' }
-        local types = { 'Default', 'VirtualText', 'Underline' }
-
-        for _, type in ipairs(types) do
-            for snew, sold in pairs(severity_map) do
-                theme.base['LspDiagnostics' .. type .. sold] = {
-                    link = 'Diagnostic' .. (type == 'Default' and '' or type) .. snew,
-                }
-            end
-        end
-    end
-
-    theme.plugins = {
         ['@text.note'] = { fg = c.bg, bg = c.info },
         ['@text.warning'] = { fg = c.bg, bg = c.warning },
         ['@text.danger'] = { fg = c.bg, bg = c.error },
@@ -191,8 +175,6 @@ function M.setup_hl_colors(c, colors)
         ['@type.builtin'] = { fg = c.magenta, style = 'italic' },
         ['@function'] = { fg = c.blue1 },
         ['@function.builtin'] = { link = '@type.builtin' },
-        ['@function.call'] = { fg = c.blue1 },
-        TSCSSClassName = { fg = c.purple },
         ['@scope.relative'] = { fg = colors.purple },
         ['@qualifier'] = { fg = colors.purple },
         ['@punctuation.delimiter'] = { fg = c.blue5 },
@@ -213,8 +195,9 @@ function M.setup_hl_colors(c, colors)
         ['@tag'] = { link = '@keyword' },
         ['@attribute'] = { link = '@tag' },
         ['@tag.attribute'] = { link = '@tag' },
-        ['@todo'] = { fg = utils.brighten(colors.orange, 0.5) },
+        ['@todo'] = { fg = utils.brighten(c.orange, 0.5) },
         ['@type.qualifier'] = { link = '@keyword' },
+        ['@title'] = { link = 'Title' },
         ['@lsp.type.class'] = { link = '@type' },
         ['@lsp.type.comment'] = { fg = c.comment },
         ['@lsp.type.function'] = { link = '@function' },
@@ -225,8 +208,13 @@ function M.setup_hl_colors(c, colors)
         ['@lsp.type.type'] = { link = '@type' },
         ['@lsp.type.typeParameter'] = { link = '@type' },
         ['@lsp.type.variable'] = { link = '@variable' },
-        ['@title'] = { link = 'Title' },
+        -- ['@lsp.type.variable.lua'] = { link = '@constant' },
 
+        -- Lua
+        ['@function.builtin.lua'] = { link = '@function.builtin ' },
+        ['@lsp.typemod.function.defaultLibrary.lua'] = { link = '@function.builtin' },
+        ['@lsp.typemod.variable.global.lua'] = { link = '@constant' },
+        -- ['@lsp.type.property.lua'] = { link = '@field' },
         -- ['@lsp.type.decorator'] = {},
         -- ['@lsp.type.enum'] = {},
         -- ['@lsp.type.enumMember'] = {},
@@ -244,6 +232,25 @@ function M.setup_hl_colors(c, colors)
         -- ['@text.environment'] = { link = 'TSEnvironment' },
         -- ['@text.environment.name'] = { link = 'TSEnvironmentName' },
         -- ['@type.definition'] = { link = 'TSTypeDefinition' },
+        zshCommands = { link = '@function.builtin' },
+    }
+
+    if not vim.diagnostic then
+        local severity_map = { Error = 'Error', Warn = 'Warning', Info = 'Information', Hint = 'Hint' }
+        local types = { 'Default', 'VirtualText', 'Underline' }
+
+        for _, type in ipairs(types) do
+            for snew, sold in pairs(severity_map) do
+                theme.base['LspDiagnostics' .. type .. sold] = {
+                    link = 'Diagnostic' .. (type == 'Default' and '' or type) .. snew,
+                }
+            end
+        end
+    end
+
+    theme.plugins = {
+        ALEErrorSign = { fg = c.error },
+        ALEWarningSign = { fg = c.warning },
 
         LspTroubleText = { fg = c.fg_dark },
         LspTroubleCount = { fg = c.magenta, bg = c.fg_gutter },
@@ -387,7 +394,6 @@ function M.setup_hl_colors(c, colors)
 
         BufferLineIndicatorSelected = { fg = c.git.change },
         BufferLineFill = { bg = c.black },
-
         BufferCurrent = { bg = c.fg_gutter, fg = c.fg },
         BufferCurrentIndex = { bg = c.fg_gutter, fg = c.info },
         BufferCurrentMod = { bg = c.fg_gutter, fg = c.warning },
@@ -409,10 +415,10 @@ function M.setup_hl_colors(c, colors)
         Sneak = { fg = c.bg_highlight, bg = c.magenta },
         SneakScope = { bg = c.bg_visual },
 
+        -- Hop
         HopNextKey = { fg = c.red, style = 'bold' },
         HopNextKey1 = { fg = c.magenta2, style = 'bold' },
         HopNextKey2 = { fg = utils.darken(c.blue2, 0.3) },
-
         HopUnmatched = { fg = c.dark3 },
 
         LightspeedGreyWash = { fg = c.dark3 },
@@ -456,8 +462,38 @@ function M.setup_hl_colors(c, colors)
         CmpItemKindOperator = { fg = c.green1, bg = c.none },
         CmpItemKindSnippet = { fg = c.dark5, bg = c.none },
 
+        -- Fidget
         FidgetTitle = { fg = c.red, bg = c.none },
         FidgetTask = { fg = c.fg, bg = c.bg },
+
+        -- Devicons
+        DevIconRedDef = { fg = c.red },
+        DevIconOrangeDef = { fg = c.orange },
+        DevIconYellowDef = { fg = c.yellow },
+        DevIconGreenDef = { fg = c.green },
+        DevIconPurpleDef = { fg = c.purple },
+        DevIconBlueDef = { fg = c.blue },
+        DevIconMagentaDef = { fg = c.magenta },
+        DevIconCyanDef = { fg = c.cyan },
+        DevIconWhiteDef = { fg = c.fg },
+        DevIconBlackDef = { fg = c.black },
+        DevIconRed1 = { fg = c.red1 },
+
+        DevIconLockfile = { fg = colors.white },
+        DevIconPackageLockJson = { link = 'DevIconLockFile' },
+        DevIconLock = { link = 'DevIconLockFile' },
+        DevIconMixLock = { link = 'DevIconLockFile' },
+
+        DevIconIgnoreFile = { fg = colors.black },
+        DevIconStyluaIgnore = { link = 'DevIconIgnoreFile' },
+        DevIconGlobalGitIgnore = { link = 'DevIconIgnoreFile' },
+        DevIconNPMIgnore = { link = 'DevIconIgnoreFile' },
+        DevIconGitIgnore = { link = 'DevIconIgnoreFile' },
+
+        DevIconNPM = { fg = '#e8274b' },
+        DevIconPackageJson = { link = 'DevIconNPM' },
+        DevIconNPMrc = { link = 'DevIconNPM' },
+        DevIconNvmRc = { fg = c.blue },
 
         DevIconPy = { fg = '#3572A5' },
         DevIconC = { fg = '#599eff' },
@@ -465,47 +501,52 @@ function M.setup_hl_colors(c, colors)
         DevIconCobol = { fg = '#005ca5' },
         DevIconTcl = { fg = '#1e5cb3' },
         DevIconCPlusPlus = { fg = '#f34b7d' },
-        DevIconYml = { fg = '#6d8086' },
-        DevIconYaml = { fg = '#6d8086' },
-        DevIconIni = { fg = '#6d8086' },
+
+        DevIconYml = { fg = colors.bright_yellow },
+        DevIconYaml = { fg = colors.bright_yellow },
+
+        DevIconIni = { fg = colors.purple }, -- '#6d8086'
+
         DevIconGodotProject = { fg = '#6d8086' },
         DevIconGDScript = { fg = '#6d8086' },
-        DevIconRb = { fg = c.gitSigns.delete },
+
+        DevIconRb = { fg = c.red1 },
         DevIconRakefile = { fg = c.gitSigns.delete },
         DevIconRake = { fg = c.gitSigns.delete },
         DevIconConfigRu = { fg = c.gitSigns.delete },
         DevIconGemfile = { fg = c.gitSigns.delete },
         DevIconGemspec = { fg = c.gitSigns.delete },
         DevIconErb = { fg = c.gitSigns.delete },
-        DevIconBrewfile = { fg = c.gitSigns.delete },
-        DevIconPackageLockJson = { fg = c.gitSigns.delete },
+        DevIconBrewfile = { link = 'DevIconRb' },
         DevIconScala = { fg = '#cc3e44' },
         DevIconRs = { fg = '#dea584' },
         DevIconMakefile = { fg = '#6d8086' },
         DevIconJava = { fg = '#cc3e44' },
         DevIconPpt = { fg = '#cb4a32' },
-        DevIconNPMIgnore = { fg = '#E8274B' },
+
+        -- { fg = '#E8274B' },
+
         DevIconDockerfile = { fg = '#384d54' },
         DevIconDb = { fg = '#dad8d8' },
         DevIconSql = { fg = '#dad8d8' },
         DevIconToml = { fg = '#6d8086' },
         DevIconGitConfig = { fg = '#41535b' },
         DevIconGitAttributes = { fg = '#41535b' },
-        DevIconSh = { fg = '#4d5a5e' },
-        DevIconFish = { fg = '#4d5a5e' },
+
+        DevIconSh = { fg = colors.magenta },
+        DevIconZsh = { link = 'DevIconSh' },
+        DevIconFish = { link = 'DevIconSh' },
+
         DevIconConf = { fg = '#6d8086' },
         DevIconDefault = { fg = '#6d8086' },
-        DevIconPromptPs1 = { fg = '#4d5a5e' },
+        DevIconPromptPs1 = { fg = c.red1 },
         DevIconCsh = { fg = '#4d5a5e' },
         DevIconAwk = { fg = '#4d5a5e' },
         DevIconRlib = { fg = '#dea584' },
-        DevIconSass = { fg = '#f55385' },
         DevIconXls = { fg = '#207245' },
         DevIconPdf = { fg = '#b30b00' },
         DevIconDsStore = { fg = '#41535b' },
         DevIconCMake = { fg = '#6d8086' },
-        DevIconLock = { fg = '#bbbbbb' },
-        DevIconPackageJson = { fg = '#e8274b' },
         DevIconPrisma = { fg = colors.bright_white },
         DevIconPrompt = { fg = colors.red },
         DevIconLog = { fg = colors.bright_white },
@@ -519,34 +560,30 @@ function M.setup_hl_colors(c, colors)
         DevIconKsh = { fg = '#4d5a5e' },
         DevIconDump = { fg = '#dad8d8' },
         DevIconGulpfile = { fg = '#cc3e44' },
-        DevIconNPMrc = { fg = '#E8274B' },
         DevIconGitModules = { fg = '#41535b' },
         DevIconCrystal = { fg = colors.alt_black },
         DevIconFennel = { fg = '#fff3d7' },
         DevIconCMakeLists = { fg = '#6d8086' },
-        -- Devicons
-        DevIconHtml = { fg = colors.orange },
-        DevIconLua = { fg = colors.blue1 },
+        DevIconHtml = { fg = c.orange },
+        DevIconMarkdown = { fg = c.orange },
+        DevIconLua = { fg = '#79b8ff' },
         DevIconVue = { fg = colors.alt_green },
-        DevIconZsh = { fg = colors.green },
         DevIconJsx = { fg = colors.alt_cyan },
         DevIconWebp = { fg = c.purple },
         DevIconJs = { fg = colors.bright_green },
-        DevIconMarkdown = { fg = colors.alt_cyan },
-        DevIconRss = { fg = colors.orange },
+        DevIconRss = { fg = c.orange },
         DevIconCp = { fg = colors.alt_cyan },
         DevIconTsx = { fg = colors.alt_cyan },
-        DevIconGitLogo = { fg = colors.orange },
-        DevIconSwift = { fg = colors.orange },
-        DevIconGitIgnore = { fg = colors.black },
+        DevIconGitLogo = { fg = c.orange },
+        DevIconSwift = { fg = c.orange },
         DevIconPyo = { fg = colors.alt_cyan },
         DevIconPyd = { fg = colors.alt_cyan },
         DevIconPyc = { fg = colors.alt_cyan },
         DevIconPng = { fg = c.purple },
         DevIconPl = { fg = colors.alt_cyan },
         DevIconNodeModules = { fg = c.red },
-        DevIconMdx = { fg = colors.alt_cyan },
-        DevIconMd = { fg = colors.alt_cyan },
+        DevIconMdx = { fg = c.orange },
+        DevIconMd = { fg = c.orange },
         DevIconTs = { fg = colors.alt_cyan },
         DevIconLicense = { fg = colors.bright_green },
         DevIconCss = { fg = colors.magenta },
@@ -562,15 +599,15 @@ function M.setup_hl_colors(c, colors)
         DevIconGo = { fg = colors.alt_cyan },
         DevIconZshrc = { fg = c.magenta },
         DevIconCpp = { fg = colors.alt_cyan },
-        DevIconHtm = { fg = colors.orange },
-        DevIconJson = { fg = colors.yellow },
+        DevIconHtm = { fg = c.orange },
+        DevIconJson = { fg = colors.bright_yellow },
         DevIconVim = { fg = colors.green },
         DevIconTerminal = { fg = colors.green },
         DevIconEx = { fg = c.purple },
         DevIconSvelte = { fg = colors.alt_red },
         DevIconFsscript = { fg = colors.alt_cyan },
         DevIconFsi = { fg = colors.alt_cyan },
-        DevIconKotlin = { fg = colors.orange },
+        DevIconKotlin = { fg = c.orange },
         DevIconClojureDart = { fg = colors.alt_cyan },
         DevIconBmp = { fg = c.purple },
         DevIconClojureJS = { fg = colors.alt_cyan },
@@ -579,7 +616,7 @@ function M.setup_hl_colors(c, colors)
         DevIconEjs = { fg = colors.bright_green },
         DevIconSuo = { fg = c.magenta },
         DevIconSln = { fg = c.magenta },
-        DevIconSig = { fg = colors.orange },
+        DevIconSig = { fg = c.orange },
         DevIconRmd = { fg = colors.alt_cyan },
         DevIconProcfile = { fg = c.purple },
         DevIconDropbox = { fg = colors.alt_blue },
@@ -591,7 +628,7 @@ function M.setup_hl_colors(c, colors)
         DevIconPsb = { fg = colors.alt_cyan },
         DevIconWebpack = { fg = colors.alt_cyan },
         DevIconClojure = { fg = colors.alt_green },
-        DevIconOPUS = { fg = colors.orange },
+        DevIconOPUS = { fg = c.orange },
         DevIconDoc = { fg = colors.blue },
         DevIconDesktopEntry = { fg = colors.magenta },
         DevIconCsv = { fg = colors.green },
@@ -601,7 +638,7 @@ function M.setup_hl_colors(c, colors)
         DevIconCoffee = { fg = colors.bright_green },
         DevIconConfiguration = { fg = colors.alt_white },
         DevIconNim = { fg = colors.yellow },
-        DevIconMustache = { fg = colors.orange },
+        DevIconMustache = { fg = c.orange },
         DevIconHs = { fg = c.purple },
         DevIconFs = { fg = colors.alt_cyan },
         DevIconMaterial = { fg = colors.magenta },
@@ -611,7 +648,7 @@ function M.setup_hl_colors(c, colors)
         DevIconDrools = { fg = colors.bright_red },
         DevIconTor = { fg = colors.alt_cyan },
         DevIconBat = { fg = colors.alt_green },
-        DevIconHbs = { fg = colors.orange },
+        DevIconHbs = { fg = c.orange },
         DevIconHaml = { fg = c.fg },
         DevIconH = { fg = c.purple },
         DevIconHh = { fg = c.purple },
@@ -624,37 +661,38 @@ function M.setup_hl_colors(c, colors)
         DevIconFsx = { fg = colors.alt_cyan },
         DevIconEnv = { fg = c.yellow },
         DevIconMjs = { fg = c.yellow },
-        DevIconMixLock = { fg = c.purple },
         DevIconAi = { fg = colors.bright_green },
-        DevIconXul = { fg = colors.orange },
+        DevIconXul = { fg = c.orange },
         DevIconCs = { fg = colors.dark_green },
-        DevIconXml = { fg = colors.orange },
+        DevIconXml = { fg = c.orange },
         DevIconElm = { fg = colors.alt_cyan },
-        DevIconXcPlayground = { fg = colors.orange },
+        DevIconXcPlayground = { fg = c.orange },
         DevIconSolidity = { fg = colors.alt_cyan },
         DevIconVerilog = { fg = colors.green },
-        DevIconMli = { fg = colors.orange },
-        DevIconKotlinScript = { fg = colors.orange },
+        DevIconMli = { fg = c.orange },
+        DevIconKotlinScript = { fg = c.orange },
         DevIconWebmanifest = { fg = colors.yellow },
         DevIconVagrantfile = { fg = colors.alt_blue },
         DevIconZshenv = { fg = c.magenta },
-        DevIconZshprofile = { fg = colors.green },
+        DevIconZshprofile = { fg = colors.magenta },
         DevIconSettingsJson = { fg = c.magenta },
         DevIconLhs = { fg = c.purple },
         DevIconGitlabCI = { fg = c.error },
-        DevIconSml = { fg = colors.orange },
+        DevIconSml = { fg = c.orange },
         DevIconHpp = { fg = c.purple },
         DevIconBashProfile = { fg = colors.green },
-        DevIconSlim = { fg = colors.orange },
+        DevIconSlim = { fg = c.orange },
         DevIconBabelrc = { fg = colors.alt_green },
         DevIconHrl = { fg = colors.dark_red },
         DevIconScss = { fg = colors.alt_red },
+        DevIconSass = { fg = '#f55385' },
+
         DevIconBashrc = { fg = colors.green },
         DevIconZig = { fg = colors.bright_yellow },
         DevIconPm = { fg = colors.alt_cyan },
         DevIconFavicon = { fg = colors.bright_green },
         DevIconMint = { fg = colors.bright_cyan },
-        DevIconMl = { fg = colors.orange },
+        DevIconMl = { fg = c.orange },
         DevIconExs = { fg = c.purple },
         DevIconMotoko = { fg = colors.bright_purple },
         DevIconEdn = { fg = colors.alt_cyan },
@@ -663,7 +701,7 @@ function M.setup_hl_colors(c, colors)
         DevIconEex = { fg = c.purple },
         DevIconStyl = { fg = colors.alt_green },
         DevIconJl = { fg = c.purple },
-        DevIconGruntfile = { fg = colors.orange },
+        DevIconGruntfile = { fg = c.orange },
         DevIconPp = { fg = c.bright_yellow },
         DevIconCxx = { fg = colors.alt_cyan },
         DevIconMyCnf = { fg = c.blue },
@@ -673,11 +711,7 @@ function M.setup_hl_colors(c, colors)
         DevIconEditorConfig = { fg = c.yellow },
         DevIconDotfileGitConfig = { fg = c.red1 },
         DevIconDefaultGitConfig = { fg = c.red1 },
-        DevIconStyluaIgnore = { fg = colors.black },
-        DevIconLockfile = { fg = c.white },
-        DevIconGlobalGitIgnore = { fg = colors.black },
         DevIconInitLua = { fg = c.magenta },
-        DevIconNvmRc = { fg = c.blue },
         DevIconFzf = { fg = c.red },
         DevIconAutols = { fg = c.cyan },
         DevIconMacOs = { fg = c.magenta },
