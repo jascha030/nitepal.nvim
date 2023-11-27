@@ -440,6 +440,9 @@ function M.setup_hl_colors(c, colors)
         LightspeedShortcut = { bg = c.magenta2, fg = c.fg, style = 'bold,underline' },
         LightspeedUnlabeledMatch = { fg = c.blue2, style = 'bold' },
 
+        FineCmdlineNormal = { link = 'NormalFloat' },
+        FineFloatBorder = { link = 'FloatBorder' },
+
         CmpDocumentation = { fg = c.fg, bg = bg('floats', c.bg_foat) },
         CmpDocumentationBorder = { fg = c.border_highlight, bg = bg('floats', c.bg_foat) },
         CmpItemAbbr = { fg = c.fg, bg = c.none },
