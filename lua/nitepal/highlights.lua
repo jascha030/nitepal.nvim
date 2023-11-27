@@ -233,6 +233,14 @@ function M.setup_hl_colors(c, colors)
         -- ['@text.environment.name'] = { link = 'TSEnvironmentName' },
         -- ['@type.definition'] = { link = 'TSTypeDefinition' },
         zshCommands = { link = '@function.builtin' },
+        zshDeref = { link = '@constant' },
+        zshSubst = { link = '@constant' },
+        zshSubstQuoted = { link = '@constant' },
+        zshSubstDelim = { link = '@function.builtin' },
+        zshMathSubst = { link = '@constant' },
+        zshBrackets = { link = '@constant' },
+        zshKeyword = { link = '@function.builtin' },
+        zshKSHFunction = { link = '@function' },
     }
 
     if not vim.diagnostic then
