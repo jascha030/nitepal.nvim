@@ -52,6 +52,8 @@ function M.setup_hl_colors(c, colors)
         NormalSB = { fg = c.fg_sidebar, bg = bg('sidebars', c.bg_sidebar) },
         NormalFloat = { fg = c.fg, bg = bg('floats', c.bg_float) },
         FloatBorder = { fg = c.border_highlight, bg = bg('floats', c.bg_float) },
+        WinSeparator = { fg = utils.brighten(c.black, 0.05), style = 'bold' },
+        -- WinSeparator = { fg = c.fg_gutter },
 
         Pmenu = { bg = bg('popups', c.bg_popup), fg = c.fg },
         PmenuSel = { bg = c.fg_gutter },
@@ -319,10 +321,10 @@ function M.setup_hl_colors(c, colors)
         -- NeoTreeStatusLineNC = {},
         -- NeoTreeTabActive = {},
         NeoTreeTabInactive = { bg = utils.darken(c.bg_sidebar, 0.5), fg = c.dark5 },
-        -- NeoTreeTabSeparatorActive = {},
-        -- NeoTreeTabSeparatorInactive = {},
-        -- NeoTreeVertSplit = {},
-        -- NeoTreeWinSeparator = {},
+        NeoTreeTabSeparatorActive = { link = 'Bord' },
+        NeoTreeTabSeparatorInactive = {},
+        NeoTreeVertSplit = { fg = c.red1 },
+        NeoTreeWinSeparator = { fg = c.red1, bg = c.bg_sidebar },
         -- NeoTreeEndOfBuffer = {},
         NeoTreeRootName = { link = 'NvimTreeRootFolder' },
         NeoTreeSymbolicLinkTarget = { link = 'NvimTreeIndentMarker' },
@@ -379,6 +381,8 @@ function M.setup_hl_colors(c, colors)
 
         LspFloatWinNormal = { bg = bg('floats', c.bg_foat) },
         LspFloatWinBorder = { fg = c.border_highlight },
+
+        LspInlayHint = { fg = c.comment, bg = c.bg_highlight, style = 'italic' },
 
         LspInfoBorder = { link = 'FloatBorder' },
         LspSagaBorderTitle = { fg = c.cyan },
