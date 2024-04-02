@@ -191,6 +191,7 @@ function M.setup_hl_colors(c, colors)
         ['@error'] = { link = 'TSError' },
         ['@exception'] = { link = 'TSException' },
         ['@method.call'] = { link = '@method' },
+        ['@module.php'] = { link = '@type' },
         ['@none'] = { link = 'TSNone' },
         ['@number'] = { fg = colors.red },
         ['@preproc'] = { link = 'TSPreProc' },

@@ -71,3 +71,15 @@
 (variadic_parameter name: (variable_name) @parameter) @variable
 (text) @text
 
+; (namespace_use_declaration) @type
+
+((namespace_use_declaration 
+   (namespace_use_clause
+     (name) @function
+     )) @import (#match? @import "^use.*function.*$")) @import.function
+
+((namespace_use_declaration 
+   (namespace_use_clause
+     (name) @constant 
+     )) @import (#match? @import "^use.*const.*$")) @import.constant
+
