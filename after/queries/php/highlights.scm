@@ -24,10 +24,10 @@
 
 (optional_type ["?"] @operator)
 (arguments (argument name: (name) @parameter.name))
+
 (declare_statement 
   (declare_directive 
-    (integer) @number) 
-  @variable)
+    (integer) @number) @variable)
 
 ([
   (class_declaration 
@@ -71,8 +71,6 @@
 (variadic_parameter name: (variable_name) @parameter) @variable
 (text) @text
 
-; (namespace_use_declaration) @type
-
 ((namespace_use_declaration 
    (namespace_use_clause
      (name) @function
@@ -83,3 +81,9 @@
      (name) @constant 
      )) @import (#match? @import "^use.*const.*$")) @import.constant
 
+
+(scoped_property_access_expression
+  scope: (relative_scope) @keyword)
+
+(class_constant_access_expression 
+  (relative_scope) @keyword)
