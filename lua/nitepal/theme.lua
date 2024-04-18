@@ -1,3 +1,4 @@
+---@type nitepal.Utils
 local utils = require('nitepal.utils')
 local config = require('nitepal.config')
 
@@ -90,17 +91,15 @@ function M.generate(style)
             teal = colors.red,
             warning = colors.bright_orange,
             yellow = colors.bright_yellow,
-            ['function'] = colors.pink,
-            -- keyword = colors.bright_purple,
+            ['function'] = brighten(colors.pink, -0.25),
             keyword = colors.alt_purple,
         })
     else
         scheme = vim.tbl_deep_extend('force', static, {
             error = brighten(colors.red, -0.2),
-            fg = lighten(brighten(colors.alt_blue, -0.4), 0.15),
+            fg = lighten(brighten(colors.blue, -0.2), 0.05),
             fg_dark = brighten(lighten(colors.alt_blue, 0.1), -0.3),
             fg_sidebar = colors.gray,
-            -- fg_gutter = '#a8aecb',
             fg_gutter = brighten(colors.bg, -0.175),
             bg_dark = darken(colors.bg, 0.025),
             bg_search = '#7890dd',
@@ -138,10 +137,16 @@ function M.generate(style)
             terminal_black = colors.black,
             warning = colors.bright_yellow,
             yellow = brighten(colors.bright_red, -0.05),
-            ['function'] = brighten(colors.pink, -0.25),
+            ['function'] = lighten(brighten(colors.pink, -0.25), -0.1),
             -- keyword = brighten(darken(colors.alt_red, 0.02), 0.01),
-            keyword = colors.alt_red,
-            diff = { add = '#aecde6', change = '#d6d8e3', delete = '#dfccd4', text = '#92a6d5' },
+            -- keyword = colors.alt_red,
+            keyword = lighten(colors.dark_red, 0.1),
+            diff = {
+                add = '#aecde6',
+                change = '#d6d8e3',
+                delete = '#dfccd4',
+                text = '#92a6d5',
+            },
             git = {
                 add = colors.alt_cyan,
                 change = '#506d9c',

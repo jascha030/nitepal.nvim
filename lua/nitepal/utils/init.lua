@@ -1,5 +1,6 @@
 local hsluv = require('nitepal.utils.hsluv')
 
+---@class nitepal.Utils
 local M = {}
 
 local function darken(n, f)
