@@ -217,6 +217,8 @@ function M.setup_hl_colors(c, colors)
         ['@function.builtin.lua'] = { link = '@function.builtin ' },
         ['@lsp.typemod.function.defaultLibrary.lua'] = { link = '@function.builtin' },
         ['@lsp.typemod.variable.global.lua'] = { link = '@constant' },
+        ['@lsp.type.interface.typescript'] = { link = '@interface.declaration' },
+        ['@lsp.typemod.type.defaultLibrary.typescript'] = { link = '@interface.declaration' },
         -- ['@lsp.type.property.lua'] = { link = '@field' },
         -- ['@lsp.type.decorator'] = {},
         -- ['@lsp.type.enum'] = {},

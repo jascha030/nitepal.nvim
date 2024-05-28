@@ -91,7 +91,7 @@ function M.generate(style)
             teal = colors.red,
             warning = colors.bright_orange,
             yellow = colors.bright_yellow,
-            ['function'] = brighten(colors.pink, -0.25),
+            ['function'] = colors.pink,
             keyword = colors.alt_purple,
         })
     else
