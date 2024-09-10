@@ -34,9 +34,9 @@
     (name) @class.declaration)
   (trait_declaration 
     name: (name) @class.declaration)
-  (class_constant_access_expression 
-    (qualified_name 
-      (namespace_name_as_prefix) @reference.scope))
+  ; (class_constant_access_expression 
+    ; (qualified_name 
+      ; (namespace_name_as_prefix) @reference.scope))
   (scoped_call_expression 
     scope: (relative_scope) @scope.relative)
   (scoped_call_expression 
@@ -53,6 +53,7 @@
     (visibility_modifier) @scope.relative)
   (property_declaration 
     (visibility_modifier) @keyword)
+  (argument (name)) @constant
   ] 
  (#set! "priority" 105))
 
