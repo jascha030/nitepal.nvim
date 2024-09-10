@@ -158,6 +158,7 @@ function M.setup_hl_colors(c, colors)
         ['@parameter.builtin'] = { link = '@parameter' },
         ['@parameter.operator'] = { fg = c.red, style = 'bold' },
         ['@parameter.reference'] = { link = '@parameter' },
+        ['@parameter.name.php'] = { fg = colors.alt_blue },
         ['@selector.tag'] = { link = '@constant' },
         ['@selector.id'] = { link = 'TSSelector' }, -- TODO: find out
         ['@keyword.scope'] = { fg = colors.red, style = 'italic' },
@@ -168,6 +169,7 @@ function M.setup_hl_colors(c, colors)
         ['@conditional.operator'] = { link = '@variable' },
         ['@conditional'] = { link = '@keyword' },
         ['@variable'] = { fg = c.fg },
+        ['@variable.bash'] = { link = '@constant' },
         ['@boolean'] = { fg = colors.red },
         ['@variable.builtin'] = { link = '@variable' },
         ['@variable.operator'] = { fg = c.fg, style = 'bold' },
@@ -181,6 +183,7 @@ function M.setup_hl_colors(c, colors)
         ['@qualifier'] = { fg = colors.purple },
         ['@punctuation.delimiter'] = { fg = c.blue5 },
         ['@punctuation.bracket'] = { fg = c.red },
+        ['@punctuation.bracket.php'] = { fg = c.red, style = 'italic' },
         ['@punctuation.special'] = { fg = c.red },
         ['@string'] = { fg = c.green },
         ['@string.regex'] = { fg = c.blue6 },
@@ -217,8 +220,14 @@ function M.setup_hl_colors(c, colors)
         ['@function.builtin.lua'] = { link = '@function.builtin ' },
         ['@lsp.typemod.function.defaultLibrary.lua'] = { link = '@function.builtin' },
         ['@lsp.typemod.variable.global.lua'] = { link = '@constant' },
+        -- Interface declaration style for built-in types and type parameters (within the `<` and `>`) for generic Types.
         ['@lsp.type.interface.typescript'] = { link = '@interface.declaration' },
+        ['@lsp.type.type.typescript'] = { link = '@interface.declaration' },
+        ['@lsp.type.typeParameter.typescript'] = { fg = colors.bright_yellow },
         ['@lsp.typemod.type.defaultLibrary.typescript'] = { link = '@interface.declaration' },
+        ['@lsp.typemod.typeParameter.declaration.typescript'] = { link = '@lsp.type.typeParameter.typescript' },
+        ['@lsp.typemod.class.defaultLibrary.typescript'] = { link = '@class.declaration' },
+
         -- ['@lsp.type.property.lua'] = { link = '@field' },
         -- ['@lsp.type.decorator'] = {},
         -- ['@lsp.type.enum'] = {},
