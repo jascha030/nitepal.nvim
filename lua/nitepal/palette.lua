@@ -77,7 +77,8 @@ local palette = {
     blue           = '#3d59a1',
     bright_blue    = '#8494FF',
     dark_blue      = '#364A82',
-    alt_blue       = '#0083f7',
+    -- alt_blue       = '#0083f7',
+    alt_blue       = '#467CDA',
 
     magenta        = '#6f42c1',
     bright_magenta = '#A59BFF',
