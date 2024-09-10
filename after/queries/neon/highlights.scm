@@ -6,3 +6,5 @@
   (lvalue (identifier_lvalue) @property)
   (rvalue (identifier) @property))
 
+(property
+  (":") @punctuation.delimiter)
