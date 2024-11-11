@@ -47,7 +47,7 @@ function M.setup_hl_colors(c, colors)
         MsgArea = { fg = c.fg_dark },
         MoreMsg = { fg = c.blue },
         NonText = { fg = c.dark3 },
-        Normal = { fg = c.fg, bg = bg('background') },
+        Normal = { fg = c.fg, bg = bg('background'), ctermbg = c.none, guibg = '#00000'  },
         NormalNC = { fg = c.fg, bg = bg('background') },
         NormalSB = { fg = c.fg_sidebar, bg = bg('sidebars', c.bg_sidebar) },
         NormalFloat = { fg = c.fg, bg = bg('floats', c.bg_float) },
@@ -214,6 +214,8 @@ function M.setup_hl_colors(c, colors)
         ['@lsp.type.type'] = { link = '@type' },
         ['@lsp.type.typeParameter'] = { link = '@type' },
         ['@lsp.type.variable'] = { link = '@variable' },
+        ['@lsp.type.property.lua'] = { fg = utils.brighten(c.magenta, 0.4) },
+        -- ['@lsp.type.property.lua'] = { fg = utils.brighten(colors.dark_blue, 0.2) },
         -- ['@lsp.type.variable.lua'] = { link = '@constant' },
 
         -- Lua
