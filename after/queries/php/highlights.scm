@@ -23,7 +23,8 @@
    ] @conditional.operator)
 
 (optional_type ["?"] @operator)
-(arguments (argument name: (name) @parameter.name))
+(arguments (argument name: (name) @parameter.name (#set! priority 150)))
+
 
 (declare_statement 
   (declare_directive 
