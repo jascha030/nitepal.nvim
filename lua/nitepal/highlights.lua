@@ -594,7 +594,7 @@ function M.setup_hl_colors(c, colors)
         DevIconFennel = { fg = '#fff3d7' },
         DevIconCMakeLists = { fg = '#6d8086' },
         DevIconHtml = { fg = c.orange },
-        DevIconMarkdown = { fg = c.orange },
+        DevIconMarkdown = { fg = c.bright_orange },
         DevIconLua = { fg = '#79b8ff' },
         DevIconVue = { fg = colors.alt_green },
         DevIconJsx = { fg = colors.alt_cyan },
