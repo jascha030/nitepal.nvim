@@ -11,4 +11,4 @@
 ] @conditional.keyword)
 
 ((identifier) @constant
-  (#lua-match? @constant "^[A-Z][A-Z_0-9]*$"))
+  (#lua-match? @constant "^[A-Z][A-Z_0-9]*$") (#set! priority 128))
