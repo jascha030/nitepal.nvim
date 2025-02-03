@@ -83,6 +83,10 @@
      (name) @constant 
      )) @import (#match? @import "^use.*const.*$")) @import.constant
 
+((member_call_expression
+  object: (member_call_expression
+            name: (name) @function.method.call.php)
+  name: (name) @function.method.call.php) (#set! priority 150))
 
 (scoped_property_access_expression
   scope: (relative_scope) @keyword)
