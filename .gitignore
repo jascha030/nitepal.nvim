@@ -1,10 +1,12 @@
-# IDE Project Files
+### Git Ignore File for Nitepal ###
+
+## IDE Project Files
 .idea/
 .vscode/
 
-# Notes
-*.txt
-hl-icons.lua
+## Notes
+/**.txt
+/**.log
 
-*.DS_Store
-
+## Other
+/hl-icons.lua
