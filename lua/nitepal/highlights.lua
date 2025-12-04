@@ -18,7 +18,7 @@ function M.setup_hl_colors(c, colors)
     local theme = {}
 
     theme.base = {
-        Comment = { fg = c.comment, style = 'italic' },
+        Comment = { fg = c.comment, style = 'italic', bg = c.none },
         ColorColumn = { bg = c.black },
         Conceal = { fg = c.dark5 },
         Cursor = { fg = c.bg, bg = c.fg },
@@ -47,13 +47,14 @@ function M.setup_hl_colors(c, colors)
         MsgArea = { fg = c.fg_dark },
         MoreMsg = { fg = c.blue },
         NonText = { fg = c.dark3 },
-        Normal = { fg = c.fg, bg = bg('background'), ctermbg = c.none, guibg = '#00000'  },
+        Normal = { fg = c.fg, bg = bg('background'), ctermbg = c.none, guibg = '#00000' },
         NormalNC = { fg = c.fg, bg = bg('background') },
         NormalSB = { fg = c.fg_sidebar, bg = bg('sidebars', c.bg_sidebar) },
         NormalFloat = { fg = c.fg, bg = bg('floats', c.bg_float) },
         FloatBorder = { fg = c.border_highlight, bg = bg('floats', c.bg_float) },
         WinSeparator = { fg = utils.brighten(c.black, 0.05), style = 'bold' },
         -- WinSeparator = { fg = c.fg_gutter },
+        --Winbar
 
         Pmenu = { bg = bg('popups', c.bg_popup), fg = c.fg },
         PmenuSel = { bg = c.fg_gutter },
@@ -80,6 +81,9 @@ function M.setup_hl_colors(c, colors)
         WarningMsg = { fg = c.warning },
         Whitespace = { fg = c.fg_gutter },
         WildMenu = { bg = c.bg_visual },
+        -- WinBar = { fg = c.fg_sidebar, bg = c.bg_statusline, guibg = c.bg_statusline },
+        WinBar = { fg = c.fg_sidebar, bg = c.bg_popup, guibg = c.bg_popup },
+        WinBarNC = { link = 'WinBar' },
 
         Constant = { fg = c.red },
         String = { fg = c.green },
@@ -399,15 +403,28 @@ function M.setup_hl_colors(c, colors)
         LspInlayHint = { fg = c.comment, bg = c.bg_highlight, style = 'italic' },
 
         LspInfoBorder = { link = 'FloatBorder' },
-        LspSagaBorderTitle = { fg = c.cyan },
-        LspSagaHoverBorder = { fg = c.blue },
-        LspSagaRenameBorder = { fg = c.green },
-        LspSagaDefPreviewBorder = { fg = c.green },
-        LspSagaCodeActionBorder = { fg = c.blue },
-        LspSagaFinderSelection = { fg = c.bg_visual },
-        LspSagaCodeActionTitle = { fg = c.blue1 },
-        LspSagaCodeActionContent = { fg = c.purple },
-        LspSagaSignatureHelpBorder = { fg = c.red },
+
+        --Winbar
+        SagaWinbarSep = { link = 'Operator' },
+        SagaWinbarFileName = { link = 'SagaFileName' },
+        SagaWinbarFolderName = { link = 'SagaFolderName' },
+        SagaWinbarFolder = { link = 'SagaFolder' },
+        SagaNormal = { bg = c.red },
+
+        -- deprecated
+        SagaFileName = { link = 'Comment' },
+        SagaFolderName = { link = 'Comment' },
+
+        SagaBorderTitle = { fg = c.cyan },
+        SagaHoverBorder = { fg = c.blue },
+        SagaRenameBorder = { fg = c.green },
+        SagaDefPreviewBorder = { fg = c.green },
+        SagaCodeActionBorder = { fg = c.blue },
+        SagaFinderSelection = { fg = c.bg_visual },
+        SagaCodeActionTitle = { fg = c.blue1 },
+        SagaCodeActionContent = { fg = c.purple },
+        SagaSignatureHelpBorder = { fg = c.red },
+
         ReferencesCount = { fg = c.purple },
         DefinitionCount = { fg = c.purple },
         DefinitionIcon = { fg = c.blue },
