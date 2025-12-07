@@ -54,7 +54,7 @@
     (visibility_modifier) @scope.relative)
   (property_declaration 
     (visibility_modifier) @keyword)
-  (argument (name)) @constant
+  ; (argument (name)) @constant
   ] 
  (#set! "priority" 105))
 
