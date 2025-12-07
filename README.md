@@ -137,6 +137,58 @@ Configuration files for external terminal emulators are located in the `extras/`
 *   **WezTerm:** `extras/wezterm/`
 *   **Ghostty:** `extras/ghostty/`
 
+## 🎨 Palette
+
+| Name | Hex | Color |
+| --- | --- | --- |
+| white | #969ac9 | ![#969ac9](https://placehold.co/15x15/969ac9/969ac9.png) |
+| bright_white | #fffcfc | ![#fffcfc](https://placehold.co/15x15/fffcfc/fffcfc.png) |
+| alt_white | #6183bb | ![#6183bb](https://placehold.co/15x15/6183bb/6183bb.png) |
+| black | #32466e | ![#32466e](https://placehold.co/15x15/32466e/32466e.png) |
+| bright_black | #465a82 | ![#465a82](https://placehold.co/15x15/465a82/465a82.png) |
+| dark_black | #1f2335 | ![#1f2335](https://placehold.co/15x15/1f2335/1f2335.png) |
+| alt_black | #232235 | ![#232235](https://placehold.co/15x15/232235/232235.png) |
+| gray | #737aa2 | ![#737aa2](https://placehold.co/15x15/737aa2/737aa2.png) |
+| gray1 | #6172b0 | ![#6172b0](https://placehold.co/15x15/6172b0/6172b0.png) |
+| gray2 | #545c7e | ![#545c7e](https://placehold.co/15x15/545c7e/545c7e.png) |
+| gray3 | #3b4261 | ![#3b4261](https://placehold.co/15x15/3b4261/3b4261.png) |
+| red | #ea1479 | ![#ea1479](https://placehold.co/15x15/ea1479/ea1479.png) |
+| bright_red | #f47cb4 | ![#f47cb4](https://placehold.co/15x15/f47cb4/f47cb4.png) |
+| dark_red | #d4007c | ![#d4007c](https://placehold.co/15x15/d4007c/d4007c.png) |
+| alt_red | #ff007c | ![#ff007c](https://placehold.co/15x15/ff007c/ff007c.png) |
+| orange | #f05033 | ![#f05033](https://placehold.co/15x15/f05033/f05033.png) |
+| bright_orange | #ff8000 | ![#ff8000](https://placehold.co/15x15/ff8000/ff8000.png) |
+| yellow | #ffcc00 | ![#ffcc00](https://placehold.co/15x15/ffcc00/ffcc00.png) |
+| bright_yellow | #ffae31 | ![#ffae31](https://placehold.co/15x15/ffae31/ffae31.png) |
+| green | #2da44e | ![#2da44e](https://placehold.co/15x15/2da44e/2da44e.png) |
+| bright_green | #9ece6a | ![#9ece6a](https://placehold.co/15x15/9ece6a/9ece6a.png) |
+| dark_green | #5d7b23 | ![#5d7b23](https://placehold.co/15x15/5d7b23/5d7b23.png) |
+| alt_green | #8fd742 | ![#8fd742](https://placehold.co/15x15/8fd742/8fd742.png) |
+| cyan | #0a6e81 | ![#0a6e81](https://placehold.co/15x15/0a6e81/0a6e81.png) |
+| bright_cyan | #1abc9c | ![#1abc9c](https://placehold.co/15x15/1abc9c/1abc9c.png) |
+| alt_cyan | #41a6b5 | ![#41a6b5](https://placehold.co/15x15/41a6b5/41a6b5.png) |
+| blue | #3d59a1 | ![#3d59a1](https://placehold.co/15x15/3d59a1/3d59a1.png) |
+| bright_blue | #8494FF | ![#8494FF](https://placehold.co/15x15/8494FF/8494FF.png) |
+| dark_blue | #364A82 | ![#364A82](https://placehold.co/15x15/364A82/364A82.png) |
+| alt_blue | #467CDA | ![#467CDA](https://placehold.co/15x15/467CDA/467CDA.png) |
+| magenta | #6f42c1 | ![#6f42c1](https://placehold.co/15x15/6f42c1/6f42c1.png) |
+| bright_magenta | #A59BFF | ![#A59BFF](https://placehold.co/15x15/A59BFF/A59BFF.png) |
+| alt_magenta | #5f5fec | ![#5f5fec](https://placehold.co/15x15/5f5fec/5f5fec.png) |
+| purple | #9d7cd8 | ![#9d7cd8](https://placehold.co/15x15/9d7cd8/9d7cd8.png) |
+| bright_purple | #bb9af7 | ![#bb9af7](https://placehold.co/15x15/bb9af7/bb9af7.png) |
+| alt_purple | #C792EA | ![#C792EA](https://placehold.co/15x15/C792EA/C792EA.png) |
+| pink | #efc9f2 | ![#efc9f2](https://placehold.co/15x15/efc9f2/efc9f2.png) |
+| none | NONE | |
+
+### Variants
+
+| Variant | Role | Hex | Color |
+| --- | --- | --- | --- |
+| **Light** | Background | `#e0e1eb` | ![#e0e1eb](https://placehold.co/15x15/e0e1eb/e0e1eb.png) |
+| **Light** | Foreground | `#444a73` | ![#444a73](https://placehold.co/15x15/444a73/444a73.png) |
+| **Dark** | Background | `#1e2030` | ![#1e2030](https://placehold.co/15x15/1e2030/1e2030.png) |
+| **Dark** | Foreground | `#c8d3f5` | ![#c8d3f5](https://placehold.co/15x15/c8d3f5/c8d3f5.png) |
+
 ## 🙏 Acknowledgements
 
 *   **[folke/tokyonight.nvim](https://github.com/folke/tokyonight.nvim):** The codebase structure and logic heavily inspired this project. It is the gold standard for Lua colorschemes.
@@ -145,5 +197,5 @@ Configuration files for external terminal emulators are located in the `extras/`
 ---
 
 <p align="center">
-  Made with ❤️ by <a href="https://github.com/jascha030">Jascha</a>
+  Made with ❤️ by <a href="https://github.com/jascha030">Jascha030</a>
 </p>
