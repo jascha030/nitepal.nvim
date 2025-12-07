@@ -487,7 +487,7 @@ function M.setup_hl_colors(c, colors)
         CmpDocumentationBorder = { fg = c.border_highlight, bg = bg('floats', c.bg_foat) },
         CmpItemAbbr = { fg = c.fg, bg = c.none },
         CmpItemAbbrDeprecated = { fg = c.fg_gutter, bg = c.none, style = 'strikethrough' },
-        CmpItemAbbrMatch = { fg = c.blue1, bg = c.none },
+        CmpItemAbbrMatch = { fg = c.red },
         CmpItemAbbrMatchFuzzy = { fg = c.blue1, bg = c.none },
         CmpItemKindDefault = { fg = c.fg_dark, bg = c.none },
         CmpItemMenu = { fg = c.comment, bg = c.none },
@@ -515,9 +515,10 @@ function M.setup_hl_colors(c, colors)
 
         -- Visual = {},
         BlinkCmpMenu = { link = 'Pmenu' },
-        BlinkCmpMenuBorder = { link = 'PmenuBorder' },
+        -- BlinkCmpMenuBorder = { link = 'PmenuBorder' },
+        BlinkCmpMenuBorder = { fg = c.green1 },
         BlinkCmpMenuSelection = { link = 'PmenuSel' },
-        BlinkCmpScrollBarThumb = { link = 'PmenuSbar' },
+        BlinkCmpScrollBarThumb = { bg = colors.bright_yellow },
         BlinkCmpLabel = { link = 'LightspeedLabel' },
         BlinkCmpLabelDeprecated = { link = 'CmpItemAbbrDeprecated' },
         BlinkCmpLabelMatch = { link = 'CmpItemAbbrMatch' },
@@ -792,6 +793,10 @@ function M.setup_hl_colors(c, colors)
         DevIconStarship = { fg = c.magenta },
         DevIconREADME = { fg = c.red },
         DevIconZshOverrides = { fg = c.purple },
+
+        NoiceCmdLineBorder = { fg = c.green1 },
+        NoiceCmdlineIcon = { fg = colors.bright_yellow },
+        NoiceCmdlinePopupBorder = { link = 'NoiceCmdLineBorder' },
     }
 
     return theme
