@@ -57,9 +57,13 @@ function M.setup_hl_colors(c, colors)
         --Winbar
 
         Pmenu = { bg = bg('popups', c.bg_popup), fg = c.fg },
+        PmenuBorder = { fg = c.border_highlight, bg = bg('popups', c.bg_popup) },
         PmenuSel = { bg = c.fg_gutter },
         PmenuSbar = { bg = bg('popups', c.bg_popup) },
         PmenuThumb = { bg = c.fg_gutter },
+        PmenuExtra = { link = 'comment' },
+        PmenuKind = { fg = c.purple },
+
         Question = { fg = c.blue },
         QuickFixLine = { bg = c.bg_visual, style = 'bold' },
         Search = { bg = c.bg_search, fg = c.fg },
@@ -81,6 +85,7 @@ function M.setup_hl_colors(c, colors)
         WarningMsg = { fg = c.warning },
         Whitespace = { fg = c.fg_gutter },
         WildMenu = { bg = c.bg_visual },
+
         -- WinBar = { fg = c.fg_sidebar, bg = c.bg_statusline, guibg = c.bg_statusline },
         WinBar = { fg = c.fg_sidebar, bg = c.bg_popup, guibg = c.bg_popup },
         WinBarNC = { link = 'WinBar' },
@@ -507,6 +512,28 @@ function M.setup_hl_colors(c, colors)
         CmpItemKindEnumMember = { fg = c.green1, bg = c.none },
         CmpItemKindOperator = { fg = c.green1, bg = c.none },
         CmpItemKindSnippet = { fg = c.dark5, bg = c.none },
+
+        -- Visual = {},
+        BlinkCmpMenu = { link = 'Pmenu' },
+        BlinkCmpMenuBorder = { link = 'PmenuBorder' },
+        BlinkCmpMenuSelection = { link = 'PmenuSel' },
+        BlinkCmpScrollBarThumb = { link = 'PmenuSbar' },
+        BlinkCmpLabel = { link = 'LightspeedLabel' },
+        BlinkCmpLabelDeprecated = { link = 'CmpItemAbbrDeprecated' },
+        BlinkCmpLabelMatch = { link = 'CmpItemAbbrMatch' },
+        -- BlinkCmpLabelDetail = { },
+        BlinkCmpLabelDescription = { link = 'CmpDocumentation' },
+        -- BlinkCmpKind = {},
+        -- ['BlinkCmpKind<kind>'] = {},
+        BlinkCmpSource = { link = '@text.reference' },
+        BlinkCmpGhostText = { link = 'Comment' },
+        BlinkCmpDoc = { link = 'CmpDocumentation' },
+        BlinkCmpDocBorder = { link = 'CmpDocumentationBorder' },
+        BlinkCmpDocSeparator = { link = 'BlinkCmpDocBorder' },
+        BlinkCmpDocCursorLine = { link = 'CursorLine' },
+        BlinkCmpSignatureHelp = { link = 'CmpDocumentation' },
+        BlinkCmpSignatureHelpBorder = { link = 'SagaSignatureHelpBorder' },
+        BlinkCmpSignatureHelpActiveParameter = { link = 'LspSignatureActiveParameter' },
 
         -- Fidget
         FidgetTitle = { fg = c.red, bg = c.none },
