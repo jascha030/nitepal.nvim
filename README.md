@@ -14,26 +14,26 @@
 </p>
 
 <p align="center">
-  <strong>A dark and light Neovim colorscheme inspired by Material Palenight and Tokyonight.</strong>
+  <strong>Two-tone Neovim colorscheme built from Palenight soul and Tokyonight structure.</strong>
 </p>
 
 ---
 
-**nitepal.nvim** is a highly customizable colorscheme for Neovim written in Lua. It started as a personal port of the Material Palenight theme (popular in the JetBrains ecosystem) but has evolved to incorporate the structural logic and cleanliness of `folke/tokyonight.nvim`.
+**nitepal.nvim** is a deeply tunable Neovim colorscheme written in Lua. It began as a personal Palenight port (from the JetBrains ecosystem) and evolved with the clean structure and composability of `folke/tokyonight.nvim`.
 
-It comes in two flavors:
-*   🌑 **Nitepal:** A deep, cool dark theme.
-*   ☀️ **Litepal:** A soft, clean light theme.
+It ships with two fully maintained variants:
+*   🌑 **Nitepal:** Deep, cool dark tones with crisp contrast.
+*   ☀️ **Litepal:** Soft, warm light tones with low glare.
 
 > **⚠️ Warning:** This is an early release. Highlight groups and colors are subject to change as I tweak them for my daily workflow.
 
 ## ✨ Features
 
-*   **Treesitter Support:** Rich syntax highlighting for better code readability.
-*   **Semantic Highlighting:** Support for LSP semantic tokens.
-*   **Lualine Integration:** Custom theme for `lualine.nvim` included.
-*   **Extras:** Color configurations for **WezTerm** and **Ghostty**.
-*   **Customizable:** Easily toggle italics, transparency, and specific UI elements.
+*   **Treesitter + LSP:** Rich syntax + semantic tokens.
+*   **Plugin Coverage:** Highlights for Telescope, Gitsigns, Bufferline, NvimTree/Neo-tree, cmp/Blink, Noice, Lspsaga, Trouble, WhichKey, Dashboard, and more.
+*   **Lualine Integration:** Built-in `lualine.nvim` theme.
+*   **Extras:** Matching palettes for **WezTerm** and **Ghostty**.
+*   **Customizable:** Contrast + transparency controls for UI surfaces.
 
 ## 📸 Gallery
 
@@ -86,13 +86,25 @@ Plug 'jascha030/nitepal.nvim'
 colorscheme nitepal
 ```
 
+## ✅ Usage
+
+```lua
+-- Dark / light selectors
+vim.cmd.colorscheme('nitepal')
+vim.cmd.colorscheme('litepal')
+
+-- Or call directly (respects vim.o.background when style = false)
+require('nitepal').colorscheme()
+-- require('nitepal').colorscheme('light')
+```
+
 ## ⚙️ Configuration
 
-You can configure the theme by calling the `setup` function. Here are the defaults:
+Configure the theme by calling `setup`. These are the defaults:
 
 ```lua
 require('nitepal').setup({
-    -- 'dark' | 'light' | false. 
+    -- 'dark' | 'light' | false.
     -- When false, it respects vim.o.background (recommended for toggling).
     style = false, 
 
@@ -111,16 +123,18 @@ require('nitepal').setup({
 
     colors = {
         -- Override specific color codes defined in nitepal.palette
-        overrides = {}, 
+        overrides = {},
         -- Add new custom colors
-        custom = {}, 
+        custom = {},
     },
 })
 ```
 
+> **Note:** `italics` and `colors.{overrides,custom}` are currently defined but not yet applied in the code. They are reserved for upcoming customization.
+
 ## 🧩 Statusline (Lualine)
 
-A lualine theme is built-in. To use it, simply set the theme in your lualine config:
+A lualine theme ships with the plugin. Set it in your lualine config:
 
 ```lua
 require('lualine').setup({
@@ -132,10 +146,12 @@ require('lualine').setup({
 
 ## 🚀 Extras
 
-Configuration files for external terminal emulators are located in the `extras/` directory.
+Terminal emulator configs live in `extras/`:
 
 *   **WezTerm:** `extras/wezterm/`
 *   **Ghostty:** `extras/ghostty/`
+
+Litepal terminal configs use slightly different light backgrounds (`#e7e9ef` / `#e7e9ee`) than the core palette. Adjust if you want strict parity.
 
 ## 🎨 Palette
 
@@ -197,5 +213,5 @@ Configuration files for external terminal emulators are located in the `extras/`
 ---
 
 <p align="center">
-  Made with ❤️ by <a href="https://github.com/jascha030">Jascha030</a>
+  Made with 🍬 and 🚬 by <a href="https://github.com/jascha030">Jascha030</a>
 </p>
