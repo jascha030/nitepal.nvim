@@ -1,4 +1,4 @@
-; extends
+;; extends
 
 (tag_name) @selector.tag
 (class_selector) @selector.class

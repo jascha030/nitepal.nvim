@@ -1,4 +1,4 @@
-; extends
+;; extends
 
 (builtin_attr) @keyword
 (attr_set) @operator

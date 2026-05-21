@@ -1,4 +1,4 @@
-;; extends
+; extends
 
 ([
   "use"
@@ -12,7 +12,6 @@
   "catch"
   "throw"
   "instanceof"
-  "from"
   "as"
  ] @keyword)
 
@@ -22,13 +21,7 @@
    "?"
    ] @conditional.operator)
 
-(optional_type ["?"] @operator)
-(arguments (argument name: (name) @parameter.name (#set! priority 150)))
-
-
-(declare_statement 
-  (declare_directive 
-    (integer) @number) @variable)
+(arguments (argument (name) @parameter.name (#set! priority 150)))
 
 ([
   (class_declaration 
