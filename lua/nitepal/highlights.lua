@@ -168,6 +168,8 @@ function M.setup_hl_colors(c, colors)
         ['@parameter.operator'] = { fg = c.red, style = 'bold' },
         ['@parameter.reference'] = { link = '@parameter' },
         ['@parameter.name.php'] = { fg = colors.alt_blue },
+        ['@constant.name.php'] = { link = '@constant' },
+        ['@constant.magic.php'] = { fg = colors.alt_red, style = 'italic' },
         ['@selector.tag'] = { link = '@constant' },
         ['@selector.id'] = { link = 'TSSelector' }, -- TODO: find out
         ['@keyword.scope'] = { fg = colors.red, style = 'italic' },
